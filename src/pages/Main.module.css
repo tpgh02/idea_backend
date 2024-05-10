@@ -1,25 +1,235 @@
+.visualElement {
+  position: absolute;
+  top: 42px;
+  left: 1344px;
+  border-radius: var(--br-12xs);
+  background-color: var(--color-gold);
+  width: 56px;
+  height: 17px;
+}
+.contentHeader,
+.mainChild,
+.mainItem {
+  position: absolute;
+  top: 33.5px;
+  left: 1333.5px;
+  backdrop-filter: blur(4px);
+  border-right: 1px solid var(--color-gray-100);
+  box-sizing: border-box;
+  width: 1px;
+  height: 31px;
+}
+.contentHeader,
+.mainItem {
+  top: 207.5px;
+  left: 688.5px;
+  height: 41px;
+}
+.mainItem {
+  top: 423.5px;
+  left: 719.5px;
+  height: 601px;
+}
+.div,
+.div1 {
+  top: 42px;
+  font-size: var(--font-size-mini);
+  line-height: 18px;
+  text-align: left;
+  height: 14px;
+  cursor: pointer;
+}
+.div {
+  position: absolute;
+  left: 1282px;
+  display: inline-block;
+  width: 45px;
+  min-width: 45px;
+}
+.div1 {
+  left: 1344px;
+  width: 60px;
+  min-width: 60px;
+}
+.div1,
+.div2,
+.div3,
+.ida {
+  position: absolute;
+  display: inline-block;
+}
+.ida {
+  margin: 0;
+  top: 64px;
+  left: 630px;
+  font-size: var(--font-size-77xl);
+  font-weight: 400;
+  font-family: var(--font-poiret-one);
+  color: var(--color-gold);
+  text-align: left;
+  width: 180px;
+  height: 113px;
+}
+.div2,
+.div3 {
+  top: 217px;
+  cursor: pointer;
+}
+.div2 {
+  left: 543px;
+  line-height: 24px;
+  width: 136px;
+  height: 23px;
+}
+.div3 {
+  left: 699px;
+  width: 98px;
+  min-width: 98px;
+}
+.contentHeader1 {
+  position: absolute;
+  top: 207.5px;
+  left: 806.5px;
+  backdrop-filter: blur(4px);
+  border-right: 1px solid var(--color-gray-100);
+  box-sizing: border-box;
+  width: 1px;
+  height: 41px;
+}
+.div4 {
+  position: absolute;
+  top: 217px;
+  left: 817px;
+  display: inline-block;
+  min-width: 80px;
+  cursor: pointer;
+}
+.placeholderLabel,
+.searchGlyph {
+  position: relative;
+  line-height: 22px;
+  display: inline-block;
+}
+.searchGlyph {
+  width: 25px;
+  flex-shrink: 0;
+}
+.placeholderLabel {
+  height: 22px;
+  flex: 1;
+  font-size: var(--font-size-mini);
+  letter-spacing: -0.4px;
+  font-family: var(--font-inter);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 20px;
+  max-width: 100%;
+}
+.searchField {
+  position: absolute;
+  top: 302px;
+  left: 445px;
+  border-radius: var(--br-3xs);
+  background-color: var(--fills-tertiary);
+  width: 550px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-6xs) var(--padding-5xs);
+  box-sizing: border-box;
+  max-width: 100%;
+  row-gap: 20px;
+  text-align: left;
+  font-size: var(--font-size-mid);
+  color: var(--labels-secondary);
+  font-family: var(--font-sf-pro);
+}
+.p,
+.p1 {
+  margin: 0;
+}
+.h1,
+.ideaPost {
+  position: absolute;
+}
+.h1 {
+  margin: 0;
+  top: 178px;
+  left: 71px;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+  display: inline-block;
+  width: 511px;
+  height: 154px;
+}
+.ideaPost {
+  top: 419px;
+  left: 40px;
+  width: 640px;
+  height: 768px;
+  overflow-y: auto;
+  font-size: var(--font-size-31xl);
+}
+.h11,
+.p2,
+.p3 {
+  margin: 0;
+}
+.h11 {
+  position: absolute;
+  top: 178px;
+  left: 65px;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+  display: inline-block;
+  width: 511px;
+  height: 154px;
+}
+.developerList {
+  position: absolute;
+  top: 419px;
+  left: 760px;
+  width: 640px;
+  height: 768px;
+  overflow-y: auto;
+  font-size: var(--font-size-31xl);
+}
 .main {
   width: 100%;
+  height: 1024px;
   position: relative;
   background-color: var(--color-white);
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: flex-start;
-  padding: var(--padding-15xl) 40px 0;
-  box-sizing: border-box;
-  gap: var(--gap-67xl);
   line-height: normal;
   letter-spacing: normal;
+  text-align: center;
+  font-size: var(--font-size-xl);
+  color: var(--color-black);
+  font-family: var(--font-inter);
 }
 @media screen and (max-width: 750px) {
-  .main {
-    gap: var(--gap-24xl);
+  .h1,
+  .h11 {
+    font-size: var(--font-size-21xl);
   }
 }
 @media screen and (max-width: 450px) {
+  .div2,
+  .div3,
+  .div4 {
+    font-size: var(--font-size-base);
+  }
+  .h1,
+  .h11 {
+    font-size: var(--font-size-11xl);
+  }
   .main {
-    gap: var(--gap-2xl);
+    height: auto;
+    min-height: 1024;
   }
 }

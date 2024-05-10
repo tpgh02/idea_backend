@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import FrameComponent from "./FrameComponent";
+import FrameComponent from "./FrameComponent6";
 import { useNavigate } from "react-router-dom";
 import styles from "./MypagePost.module.css";
 
