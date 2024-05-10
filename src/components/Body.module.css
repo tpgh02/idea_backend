@@ -1,0 +1,201 @@
+.div {
+  position: relative;
+  line-height: 19px;
+  display: inline-block;
+  min-width: 60px;
+  cursor: pointer;
+}
+.actionButtons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-5xs) 0 0;
+}
+.navigation {
+  height: 31px;
+  width: 1px;
+  position: relative;
+  backdrop-filter: blur(4px);
+  border-right: 1px solid var(--color-gray-100);
+  box-sizing: border-box;
+}
+.div1 {
+  position: relative;
+  line-height: 19px;
+  display: inline-block;
+  min-width: 69px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.actionButtons1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-5xs) 0 0;
+}
+.profileIntro,
+.userOptions {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.profileIntro {
+  height: 30px;
+  justify-content: flex-start;
+  gap: var(--gap-5xs-5);
+}
+.userOptions {
+  align-self: stretch;
+  justify-content: flex-end;
+}
+.ida {
+  margin: 0;
+  width: 180px;
+  position: relative;
+  font-size: var(--font-size-77xl);
+  font-weight: 400;
+  font-family: var(--font-poiret-one);
+  color: var(--color-gold);
+  text-align: left;
+  display: inline-block;
+  cursor: pointer;
+}
+.dropdownItems,
+.experienceContent {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.dropdownItems {
+  width: 783px;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.experienceContent {
+  align-self: stretch;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.boardContainerChild {
+  height: 24px;
+  width: 139px;
+  position: relative;
+  border-radius: var(--br-12xs);
+  background-color: var(--color-gold);
+  display: none;
+}
+.div2 {
+  position: relative;
+  line-height: 24px;
+  white-space: nowrap;
+  z-index: 1;
+}
+.boardContainer,
+.ideaBoard {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.boardContainer {
+  border-radius: var(--br-12xs);
+  background-color: var(--color-gold);
+  flex-direction: row;
+  padding: 0 var(--padding-12xs) var(--padding-12xs) var(--padding-11xs);
+  white-space: nowrap;
+}
+.ideaBoard {
+  flex-direction: column;
+  padding: var(--padding-4xs) 0 0;
+}
+.robertGarcia {
+  height: 41px;
+  width: 1px;
+  position: relative;
+  backdrop-filter: blur(4px);
+  border-right: 1px solid var(--color-gray-100);
+  box-sizing: border-box;
+}
+.div3 {
+  position: relative;
+  display: inline-block;
+  min-width: 98px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-4xs) 0 0;
+}
+.frameChild {
+  height: 41px;
+  width: 1px;
+  position: relative;
+  backdrop-filter: blur(4px);
+  border-right: 1px solid var(--color-gray-100);
+  box-sizing: border-box;
+}
+.div4 {
+  position: relative;
+  display: inline-block;
+  min-width: 80px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-4xs) 0 0;
+}
+.ideaBoardParent {
+  height: 40px;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: var(--gap-3xs-3);
+  font-size: var(--font-size-xl);
+}
+.body,
+.ideaBoardParent,
+.navigationPanel {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.navigationPanel {
+  width: 872px;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: var(--gap-13xl);
+}
+.body {
+  align-self: stretch;
+  flex-direction: row;
+  justify-content: flex-end;
+  text-align: center;
+  font-size: var(--font-size-mini);
+  color: var(--color-black);
+  font-family: var(--font-inter);
+}
+@media screen and (max-width: 750px) {
+  .ida {
+    font-size: var(--font-size-29xl);
+  }
+}
+@media screen and (max-width: 450px) {
+  .ida {
+    font-size: var(--font-size-10xl);
+  }
+  .div3,
+  .div4 {
+    font-size: var(--font-size-base);
+  }
+  .navigationPanel {
+    gap: var(--gap-base);
+  }
+}

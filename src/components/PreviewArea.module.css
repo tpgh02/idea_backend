@@ -1,0 +1,111 @@
+.h1,
+.p,
+.p1 {
+  margin: 0;
+}
+.h1 {
+  align-self: stretch;
+  height: 154px;
+  position: relative;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.previewContentHeader {
+  width: 511px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-154xl) 0 0;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.frameChild {
+  width: 1px;
+  flex: 1;
+  position: relative;
+  backdrop-filter: blur(4px);
+  border-right: 1px solid var(--color-gray-100);
+  box-sizing: border-box;
+}
+.lineWrapper {
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-7xs) 0 0;
+  box-sizing: border-box;
+}
+.h11,
+.p2,
+.p3 {
+  margin: 0;
+}
+.h11 {
+  align-self: stretch;
+  height: 154px;
+  position: relative;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.previewContentHeader1 {
+  width: 511px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-154xl) 0 0;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.previewArea,
+.previewContentHeaderParent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.previewContentHeaderParent {
+  flex: 1;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+}
+.previewArea {
+  align-self: stretch;
+  justify-content: flex-end;
+  padding: 0 var(--padding-45xl) 0 var(--padding-52xl);
+  box-sizing: border-box;
+  text-align: center;
+  font-size: var(--font-size-31xl);
+  color: var(--color-black);
+  font-family: var(--font-inter);
+}
+@media screen and (max-width: 1225px) {
+  .previewContentHeaderParent {
+    flex-wrap: wrap;
+  }
+  .previewArea {
+    padding-left: var(--padding-16xl);
+    padding-right: var(--padding-13xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 750px) {
+  .h1,
+  .h11 {
+    font-size: var(--font-size-21xl);
+  }
+}
+@media screen and (max-width: 450px) {
+  .h1,
+  .h11 {
+    font-size: var(--font-size-11xl);
+  }
+}
