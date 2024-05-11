@@ -1,14 +1,14 @@
 import { useCallback } from "react";
 import FrameComponent from "./FrameComponent6";
-import { useNavigate } from "react-router-dom";
 import styles from "./MypagePost.module.css";
 
 const MypagePost = ({ onClose }) => {
-  const navigate = useNavigate();
 
   const onQuillescapeIconClick = useCallback(() => {
-    navigate("/main-log-in");
-  }, [navigate]);
+      if (onClose) {
+          onClose();
+      }
+  }, [onClose]);
 
   return (
     <div className={styles.mypagePost}>

@@ -1,11 +1,9 @@
 import { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
 import FrameComponent from "./FrameComponent5";
 import FormStructure from "./FormStructure";
 import styles from "./SignUpDeveloper.module.css";
 
 const SignUpDeveloper = ({ onClose }) => {
-  const navigate = useNavigate();
 
   const onQuillescapeIconClick = useCallback(() => {
       if (onClose) {

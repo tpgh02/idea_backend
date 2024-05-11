@@ -2,13 +2,11 @@ import { useState, useCallback } from "react";
 import SignUpNormal from "./SignUpNormal";
 import PortalPopup from "./PortalPopup";
 import SignUpDeveloper from "./SignUpDeveloper";
-import { useNavigate } from "react-router-dom";
 import styles from "./Letter.module.css";
 
 const Letter = ({ onClose }) => {
   const [isSignUpNormalOpen, setSignUpNormalOpen] = useState(false);
   const [isSignUpDeveloperOpen, setSignUpDeveloperOpen] = useState(false);
-  const navigate = useNavigate();
 
   const onQuillescapeIconClick = useCallback(() => {
     if (onClose) {

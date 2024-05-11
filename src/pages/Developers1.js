@@ -2,16 +2,18 @@ import { useState, useCallback } from "react";
 import MypageSetting from "../components/MypageSetting";
 import PortalPopup from "../components/PortalPopup";
 import { useNavigate } from "react-router-dom";
-import FrameComponent2 from "../components/FrameComponent2";
-import FrameComponent3 from "../components/FrameComponent3";
 import styles from "./Developers1.module.css";
 
 const Developers1 = () => {
   const [isMypageSettingOpen, setMypageSettingOpen] = useState(false);
   const navigate = useNavigate();
 
-  const onText7Click = useCallback(() => {
+  const onTextClick = useCallback(() => {
     navigate("/");
+  }, [navigate]);
+
+  const onIdeaClick = useCallback(() => {
+    navigate("/main-log-in");
   }, [navigate]);
 
   const openMypageSetting = useCallback(() => {
@@ -22,56 +24,78 @@ const Developers1 = () => {
     setMypageSettingOpen(false);
   }, []);
 
-  const onIdaTextClick = useCallback(() => {
-    navigate("/main-log-in");
+  const onText4Click = useCallback(() => {
+    navigate("/board");
+  }, [navigate]);
+
+  const onText5Click = useCallback(() => {
+    navigate("/developers");
+  }, [navigate]);
+
+  const onText6Click = useCallback(() => {
+    navigate("/developers1");
   }, [navigate]);
 
   return (
-    <>
-      <div className={styles.developers}>
-        <section className={styles.navigation}>
-          <div className={styles.dropdownMenu}>
-            <div className={styles.userActionsWrapper}>
-              <div className={styles.userActions}>
-                <div className={styles.actionItems}>
-                  <div className={styles.div} onClick={onText7Click}>
-                    로그아웃
-                  </div>
-                </div>
-                <div className={styles.userActionsChild} />
-                <div className={styles.actionItems1}>
-                  <div className={styles.div1} onClick={openMypageSetting}>
-                    마이페이지
-                  </div>
-                </div>
-              </div>
+      <>
+        <div className={styles.main}>
+
+          <div className={styles.top}>
+            <h1 className={styles.ida} onClick={onIdeaClick}>idéa</h1>
+            <div className={styles.div} onClick={onTextClick}>
+              로그아웃
             </div>
-            <h1 className={styles.ida} onClick={onIdaTextClick}>
-              idéa
-            </h1>
+            <div className={styles.div1} onClick={openMypageSetting}>
+              마이페이지
+            </div>
           </div>
-        </section>
-        <div className={styles.contentPanel}>
-          <FrameComponent2 />
-        </div>
-        <div className={styles.searchArea}>
-          <div className={styles.searchField}>
-            <div className={styles.searchGlyph}>􀊫</div>
-            <div className={styles.placeholderLabel}>검색</div>
+
+          <div className={styles.middle1}>
+            <div className={styles.div2} onClick={onText4Click}>
+              아이디어 게시판
+            </div>
+            <div className={styles.div3} onClick={onText5Click}>
+              개발자 목록
+            </div>
+            <div className={styles.div4} onClick={onText6Click}>
+              채팅 목록
+            </div>
           </div>
-          <FrameComponent3 />
+
+          <div className={styles.middle2}>
+            <div className={styles.searchField}>
+              <img
+                  className={styles.searchGlyph}
+                  loading="lazy"
+                  alt=""
+                  src="/search.svg"
+              />
+              <input
+                  className={styles.placeholderLabel}
+                  placeholder="검색"
+                  type="text"
+              />
+            </div>
+          </div>
+
+          <div className={styles.bottom}>
+            <div className={styles.ideaPost}>
+              <h1 className={styles.h1}>
+                <p className={styles.p}>{`채팅 목록`}</p>
+              </h1>
+            </div>
+          </div>
         </div>
-      </div>
-      {isMypageSettingOpen && (
-        <PortalPopup
-          overlayColor="rgba(113, 113, 113, 0.3)"
-          placement="Centered"
-          onOutsideClick={closeMypageSetting}
-        >
-          <MypageSetting onClose={closeMypageSetting} />
-        </PortalPopup>
-      )}
-    </>
+        {isMypageSettingOpen && (
+            <PortalPopup
+                overlayColor="rgba(113, 113, 113, 0.3)"
+                placement="Centered"
+                onOutsideClick={closeMypageSetting}
+            >
+              <MypageSetting onClose={closeMypageSetting} />
+            </PortalPopup>
+        )}
+      </>
   );
 };
 

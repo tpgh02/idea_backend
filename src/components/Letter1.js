@@ -1,9 +1,7 @@
 import { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
 import styles from "./Letter1.module.css";
 
 const Letter1 = ({ onClose }) => {
-  const navigate = useNavigate();
 
   const onQuillescapeIconClick = useCallback(() => {
       if (onClose) {

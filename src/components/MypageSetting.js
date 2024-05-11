@@ -1,14 +1,14 @@
 import { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
 import Navigation1 from "./Navigation1";
 import styles from "./MypageSetting.module.css";
 
 const MypageSetting = ({ onClose }) => {
-  const navigate = useNavigate();
 
   const onQuillescapeIconClick = useCallback(() => {
-    navigate("/main-log-in");
-  }, [navigate]);
+      if (onClose) {
+          onClose();
+      }
+  }, [onClose]);
 
   return (
     <div className={styles.mypageSetting}>

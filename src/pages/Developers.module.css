@@ -1,130 +1,151 @@
+.main{
+  flex-direction: column;
+}
+.top,
+.middle1,
+.middle2,
+.bottom{
+  display: flex;
+}
+
+.div1,
+.div{
+  margin-left : 500px;
+}
+.ida {
+  display: inline-block;
+  padding-left : 212px;
+  margin : auto;
+  font-size: var(--font-size-77xl);
+  font-weight: 112;
+  font-family: var(--font-poiret-one);
+  color: var(--color-gold);
+}
+.div,
+.div1{
+  margin: 10px 10px 0px 10px;
+  height: 20px;
+}
+.div{
+  border-right : 1px solid var(--color-gray-100);
+  padding: 0px 10px 0px 0px;
+}
+.div1,
+.div3{
+  background-color: var(--color-gold)
+}
+
+
+.middle1{
+  margin:auto;
+}
+.div2,
+.div3,
+.div4{
+  margin: 10px;
+}
+
+.div2,
+.div3,
+.div4{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-size: 20px;
+  align-content: center;
+}
+.div3{
+  border-left : 1px solid var(--color-gray-100);
+  border-right : 1px solid var(--color-gray-100);
+  padding: 10px 20px 10px 20px;
+}
+
+.ida,
+.div,
+.div1,
+.div2,
+.div3,
+.div4{
+  cursor: pointer;
+}
+
+.preBar {
+  position: absolute;
+  top: 33.5px;
+  left: 1333.5px;
+  backdrop-filter: blur(4px);
+  border-right: 1px solid var(--color-gray-100);
+  box-sizing: border-box;
+  width: 1px;
+  height: 31px;
+}
+
+
+
+
+
 .placeholderLabel,
 .searchGlyph {
-  position: relative;
   line-height: 22px;
   display: inline-block;
 }
 .searchGlyph {
-  width: 25px;
+  width: 23px;
   flex-shrink: 0;
+  padding-right: 5px;
 }
 .placeholderLabel {
   height: 22px;
   flex: 1;
-  font-size: var(--font-size-mini);
-  letter-spacing: -0.4px;
-  font-family: var(--font-inter);
-  overflow: hidden;
-  text-overflow: ellipsis;
+  background-color: rgba(0, 0, 0, 0);
+  border : 0;
   white-space: nowrap;
   min-width: 20px;
   max-width: 100%;
 }
 .searchField {
-  align-self: stretch;
+  top: 302px;
+  left: 445px;
   border-radius: var(--br-3xs);
   background-color: var(--fills-tertiary);
+  width: 550px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
   padding: var(--padding-6xs) var(--padding-5xs);
   box-sizing: border-box;
   max-width: 100%;
   row-gap: 20px;
-}
-.developerResultsChild,
-.h1 {
-  position: relative;
-  max-width: 100%;
-}
-.developerResultsChild {
-  height: 552px;
-  width: 550px;
-  background-color: var(--color-gainsboro-100);
-  display: none;
-}
-.h1 {
-  margin: 0;
-  height: 60px;
-  flex: 1;
-  font-size: inherit;
-  font-weight: 400;
-  font-family: inherit;
-  display: inline-block;
-  z-index: 1;
-}
-.developerResults,
-.developers,
-.searchArea {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-}
-.developerResults {
-  align-self: stretch;
-  background-color: var(--color-gainsboro-100);
-  flex-direction: row;
-  padding: 246px 0;
-  box-sizing: border-box;
-  max-width: 100%;
-  text-align: center;
-  font-size: var(--font-size-31xl);
-  color: var(--color-black);
-  font-family: var(--font-inter);
-}
-.developers,
-.searchArea {
-  flex-direction: column;
-}
-.searchArea {
-  width: 550px;
-  gap: var(--gap-29xl);
-  max-width: 100%;
-}
-.developers {
-  width: 100%;
-  position: relative;
-  background-color: var(--color-white);
-  overflow: hidden;
-  padding: var(--padding-15xl) var(--padding-8xl) var(--padding-67xl)
-    var(--padding-426xl);
-  box-sizing: border-box;
-  gap: var(--gap-35xl);
-  line-height: normal;
-  letter-spacing: normal;
   text-align: left;
   font-size: var(--font-size-mid);
   color: var(--labels-secondary);
   font-family: var(--font-sf-pro);
+  margin : auto;
 }
-@media screen and (max-width: 750px) {
-  .h1 {
-    font-size: var(--font-size-21xl);
-  }
-  .developers {
-    gap: var(--gap-8xl);
-    padding-left: var(--padding-203xl);
-    box-sizing: border-box;
-  }
+
+.h1{
+  margin: auto;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+  display: inline-block;
+  width: 511px;
+  height: 154px;
+  align-content: center;
 }
-@media screen and (max-width: 675px) {
-  .developerResults {
-    padding-top: var(--padding-141xl);
-    padding-bottom: var(--padding-141xl);
-    box-sizing: border-box;
-  }
-  .searchArea {
-    gap: var(--gap-5xl);
-  }
+.ideaPost {
+  width: 640px;
+  height: 768px;
+  overflow-y: auto;
+  font-size: var(--font-size-29xl);
+  margin: auto;
 }
-@media screen and (max-width: 450px) {
-  .h1 {
-    font-size: var(--font-size-11xl);
-  }
-  .developers {
-    padding-left: var(--padding-xl);
-    box-sizing: border-box;
-  }
+
+.main {
+  max-width: 1024px;
+  background-color: var(--color-white);
+  display: flex;
+  margin: 0 auto;
+  padding: 20px 20px 0 20px;
 }
