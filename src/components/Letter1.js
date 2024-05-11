@@ -6,8 +6,10 @@ const Letter1 = ({ onClose }) => {
   const navigate = useNavigate();
 
   const onQuillescapeIconClick = useCallback(() => {
-    navigate("/");
-  }, [navigate]);
+      if (onClose) {
+          onClose();
+      }
+  }, [onClose]);
 
   return (
     <div className={styles.letter2}>

@@ -11,8 +11,10 @@ const Letter = ({ onClose }) => {
   const navigate = useNavigate();
 
   const onQuillescapeIconClick = useCallback(() => {
-    navigate("/");
-  }, [navigate]);
+    if (onClose) {
+      onClose();
+    }
+  }, [onClose]);
 
   const openSignUpNormal = useCallback(() => {
     setSignUpNormalOpen(true);
