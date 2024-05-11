@@ -8,8 +8,10 @@ const SignUpDeveloper = ({ onClose }) => {
   const navigate = useNavigate();
 
   const onQuillescapeIconClick = useCallback(() => {
-    navigate("/");
-  }, [navigate]);
+      if (onClose) {
+          onClose();
+      }
+  }, [onClose]);
 
   return (
     <div className={styles.signUpDeveloper}>

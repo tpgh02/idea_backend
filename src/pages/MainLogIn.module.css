@@ -1,114 +1,161 @@
-.div {
-  position: relative;
-  line-height: 19px;
+.main{
+  flex-direction: column;
+}
+.top,
+.middle1,
+.middle2,
+.bottom{
+  display: flex;
+}
+
+.div1,
+.div{
+  margin-left : 500px;
+}
+.ida {
   display: inline-block;
-  min-width: 60px;
+  padding-left : 212px;
+  margin : auto;
+  font-size: var(--font-size-77xl);
+  font-weight: 112;
+  font-family: var(--font-poiret-one);
+  color: var(--color-gold);
+}
+.div,
+.div1{
+  margin: 10px 10px 0px 10px;
+  height: 20px;
+}
+.div{
+  border-right : 1px solid var(--color-gray-100);
+  padding: 0px 10px 0px 0px;
+}
+.div1{
+  background-color: var(--color-gold)
+}
+
+
+.middle1{
+  margin:auto;
+}
+.div2,
+.div3,
+.div4{
+  margin: 10px;
+}
+
+.div2,
+.div3,
+.div4{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-size: 20px;
+  align-content: center;
+}
+.div3{
+  border-left : 1px solid var(--color-gray-100);
+  border-right : 1px solid var(--color-gray-100);
+  padding: 10px 20px 10px 20px;
+}
+
+.div,
+.div1,
+.div2,
+.div3,
+.div4{
   cursor: pointer;
 }
-.userActions {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: var(--padding-5xs) 0 0;
-}
-.separator {
-  height: 31px;
-  width: 1px;
-  position: relative;
+
+.preBar {
+  position: absolute;
+  top: 33.5px;
+  left: 1333.5px;
   backdrop-filter: blur(4px);
   border-right: 1px solid var(--color-gray-100);
   box-sizing: border-box;
+  width: 1px;
+  height: 31px;
 }
-.div1 {
-  position: relative;
-  line-height: 19px;
+
+
+
+
+
+.placeholderLabel,
+.searchGlyph {
+  line-height: 22px;
   display: inline-block;
-  min-width: 69px;
+}
+.searchGlyph {
+  width: 23px;
+  flex-shrink: 0;
+  padding-right: 5px;
+}
+.placeholderLabel {
+  height: 22px;
+  flex: 1;
+  background-color: rgba(0, 0, 0, 0);
+  border : 0;
   white-space: nowrap;
-  cursor: pointer;
+  min-width: 20px;
+  max-width: 100%;
 }
-.userActions1 {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: var(--padding-5xs) 0 0;
-}
-.userNavigation,
-.userOptions {
+.searchField {
+  top: 302px;
+  left: 445px;
+  border-radius: var(--br-3xs);
+  background-color: var(--fills-tertiary);
+  width: 550px;
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
-}
-.userOptions {
-  height: 30px;
+  flex-wrap: wrap;
+  align-items: center;
   justify-content: flex-start;
-  gap: var(--gap-5xs-5);
-}
-.userNavigation {
-  align-self: stretch;
-  justify-content: flex-end;
-}
-.ida {
-  margin: 0;
-  width: 180px;
-  position: relative;
-  font-size: var(--font-size-77xl);
-  font-weight: 400;
-  font-family: var(--font-poiret-one);
-  color: var(--color-gold);
-  text-align: left;
-  display: inline-block;
-}
-.topNavigation {
-  width: 803px;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: 0 0 0 var(--padding-xl);
-  max-width: 100%;
-  text-align: center;
-  font-size: var(--font-size-mini);
-  color: var(--color-black);
-  font-family: var(--font-inter);
-}
-.boardContainer,
-.mainLogIn,
-.topNavigation {
-  display: flex;
+  padding: var(--padding-6xs) var(--padding-5xs);
   box-sizing: border-box;
-}
-.boardContainer {
-  width: 1379px;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-end;
-  padding: 0 77px;
   max-width: 100%;
+  row-gap: 20px;
+  text-align: left;
+  font-size: var(--font-size-mid);
+  color: var(--labels-secondary);
+  font-family: var(--font-sf-pro);
+  margin : auto;
 }
-.mainLogIn {
-  width: 100%;
-  position: relative;
+
+
+.bottom{
+  padding-top: 100px;
+}
+.h1,
+.h11{
+  margin: auto;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+  display: inline-block;
+  width: 511px;
+  height: 154px;
+}
+
+.developerList,
+.ideaPost {
+  top: 419px;
+  left: 40px;
+  width: 640px;
+  height: 768px;
+  overflow-y: auto;
+  font-size: var(--font-size-31xl);
+}
+
+.ideaPost{
+  border-right : 1px solid var(--color-gray-100);
+}
+
+.main {
+  max-width: 1024px;
   background-color: var(--color-white);
-  overflow: hidden;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: flex-start;
-  padding: var(--padding-15xl) var(--padding-8xl) 0 0;
-  gap: var(--gap-13xl);
-  line-height: normal;
-  letter-spacing: normal;
+  display: flex;
+  margin: 0 auto;
+  padding: 20px 20px 0 20px;
 }
-@media screen and (max-width: 1200px) {
-  .boardContainer {
-    padding-left: var(--padding-19xl);
-    padding-right: var(--padding-19xl);
-    box-sizing: border-box;
-  }
-}
-@media screen and (max-width: 750px) {
-  .mainLogIn {
-    gap: var(--gap-base);
-  }
-}
+
