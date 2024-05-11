@@ -50,13 +50,13 @@ const Main = () => {
 
         <div className={styles.middle1}>
           <div className={styles.div2} onClick={openLetter2}>
-            아이디어게시판
+            아이디어 게시판
           </div>
           <div className={styles.div3} onClick={openLetter2}>
-            개발자목록
+            개발자 목록
           </div>
           <div className={styles.div4} onClick={openLetter2}>
-            채팅목록
+            채팅 목록
           </div>
         </div>
 
