@@ -1,81 +1,105 @@
-.mainContainerInner {
-  width: 139px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: var(--padding-314xl) 0 0;
-  box-sizing: border-box;
-}
-.email {
-  height: 768px;
-  flex: 1;
-  position: relative;
-  border: 1px solid var(--color-gray-200);
-  box-sizing: border-box;
-  min-width: 292px;
-  max-width: 100%;
-}
-.mainContainer {
-  width: 666px;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: var(--gap-58xl);
-  max-width: 100%;
-}
-.mypagePost,
-.quillescapeIcon {
-  position: relative;
-  overflow: hidden;
-}
 .quillescapeIcon {
   height: 32px;
   width: 32px;
+  position: relative;
+  overflow: hidden;
   flex-shrink: 0;
   cursor: pointer;
 }
-.mypagePost {
-  width: 1024px;
-  background-color: var(--color-white);
+.mypageSetting{
+  display: flex;
+}
+
+.editProfile,
+.mainContent,
+.mypageSettingInner{
+
+}
+
+.mainContent {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  justify-content: space-between;
-  padding: 0 0 0 var(--padding-52xl);
+  justify-content: flex-start;
+}
+
+
+
+.mypageSetting,
+.mypageSettingInner,
+.rectangleParent2 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.mypageSetting,
+.mypageSettingInner {
+  justify-content: center;
   box-sizing: border-box;
+  max-width: 100%;
+}
+.mypageSettingInner{
+  padding-right: 120px;
+}
+.mypageSetting {
+  width: 1024px;
+  height: 768px;
+  background-color: var(--color-white);
+  overflow: hidden;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 158px;
   line-height: normal;
   letter-spacing: normal;
-  gap: var(--gap-xl);
-  max-width: 100%;
   max-height: 100%;
 }
-@media screen and (max-width: 750px) {
-  .mainContainer {
-    gap: var(--gap-19xl);
+@media screen and (max-width: 675px) {
+  .mypageSetting {
+    gap: 79px;
   }
-  .mypagePost {
-    flex-wrap: wrap;
-    padding: var(--padding-xl);
-    box-sizing: border-box;
+}
+@media screen and (max-width: 450px) {
+  .div {
+    font-size: var(--font-size-xl);
+  }
+  .mypageSetting {
+    gap: 39px;
   }
 }
 
-.div {
+.divn {
+  height: 25px;
+  width: 57px;
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.userInformation {
+  width: 487px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 var(--padding-xl);
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.div1 {
   position: relative;
   display: inline-block;
   min-width: 92px;
   white-space: nowrap;
 }
-.detailsPanel {
+.profileData {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: flex-end;
   padding: 0 var(--padding-4xl) 0 var(--padding-5xl);
 }
-.separator {
+.editProfileChild {
   align-self: stretch;
   height: 1px;
   position: relative;
@@ -83,68 +107,208 @@
   border-top: 1px solid var(--color-gray-100);
   box-sizing: border-box;
 }
-.div1 {
-  width: 112px;
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-}
 .frameChild {
   height: 24px;
   width: 139px;
   position: relative;
-  border-radius: var(--br-12xs);
-  background-color: var(--color-whitesmoke);
   display: none;
 }
+.div4,
 .div2 {
+  flex: 1;
   position: relative;
-  display: inline-block;
-  min-width: 92px;
   z-index: 1;
 }
-.detailsPanelParent,
+.editProfile,
 .rectangleParent {
   align-self: stretch;
   display: flex;
-  align-items: flex-start;
   justify-content: flex-start;
 }
 .rectangleParent {
   height: 24px;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0 var(--padding-8xl) 0 0;
+  box-sizing: border-box;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.wrapper2{
+  height: 24px;
   border-radius: var(--br-12xs);
   background-color: var(--color-whitesmoke);
   flex-direction: row;
-  padding: 0;
+  align-items: flex-start;
+  width:100%;
   box-sizing: border-box;
   white-space: nowrap;
 }
-.detailsPanelParent {
+.editProfile {
   flex-direction: column;
-  gap: var(--gap-4xs-7);
-  text-align: center;
+  align-items: flex-end;
+  gap: var(--gap-3xs-5);
+}
+.profileModification {
+  width: 139px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  align-self:center;
+}
+.div3,
+.email {
+  position: relative;
+}
+.email {
+  border: 1px solid var(--color-gray-200);
+  outline: 0;
+  background-color: transparent;
+  align-self: stretch;
+  height: 60px;
+  box-sizing: border-box;
+  min-width: 250px;
+}
+.div3 {
+  width: 57px;
+  height: 25px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.emailInput {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-xl);
+  min-width: 292px;
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--font-size-mini);
+  font-family: var(--font-poiret-one);
+  align-self:center;
+  border: 0px 1px 0px 1px solid var(--color-gray-200);
+}
+.profileSettings {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: center;
+  gap: var(--gap-57xl);
+  max-width: 100%;
+}
+.email1,
+.wrapper {
+  box-sizing: border-box;
+}
+.wrapper {
+  width: 95px;
+  height: 24px;
+  display: flex;
+  flex-direction: row;
+  align-self: start;
+  justify-content: flex-start;
+  padding: 0;
+  position: relative;
+}
+
+.email1 {
+  border: 1px solid var(--color-gray-200);
+  outline: 0;
+  background-color: transparent;
+  align-self: stretch;
+  height: 60px;
+  position: relative;
+  min-width: 250px;
+}
+.postInput,
+.userPosts {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.postInput {
+  width: 450px;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+.userPosts {
+  align-self: stretch;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+  margin-top: -8px;
+}
+.profileSettingsParent {
+  align-self: stretch;
+  flex-direction: column;
   font-size: var(--font-size-xl);
-  color: var(--color-black);
   font-family: var(--font-inter);
 }
+.navigation,
+.profileSettingsParent {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.profileNavigation {
+  height: 100%;
+  width: 665px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.navigation {
+  height: 100%;
+  align-self: stretch;
+  flex-direction: row;
+  padding: 0px 100px 0px 100px;
+  box-sizing: border-box;
+  text-align: left;
+  font-size: var(--font-size-mini);
+  color: var(--color-black);
+  font-family: var(--font-poiret-one);
+}
+@media screen and (max-width: 800px) {
+  .navigation {
+    padding-left: var(--padding-17xl);
+    padding-right: var(--padding-17xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 675px) {
+  .profileSettings {
+
+  }
+  .userPosts {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
 @media screen and (max-width: 450px) {
-  .div,
   .div1 {
     font-size: var(--font-size-base);
   }
-}
-
-@media screen and (max-width: 675px) {
-  .mainContainer {
-    flex-wrap: wrap;
-  }
-}
-@media screen and (max-width: 450px) {
-  .mainContainerInner {
-    padding-top: var(--padding-197xl);
-    box-sizing: border-box;
-  }
-  .mainContainer {
+  .profileSettings {
     gap: var(--gap-lgi);
   }
+}
+
+.rectangleParent2 {
+  border: 0;
+  background-color: var(--color-white);
+  justify-content: flex-start;
+  display: flex;
+}
+.frameChild2 {
+  height: 63.33px;
+  width: 139px;
+  background-color: var(--color-white);
 }

@@ -61,10 +61,6 @@ const MypageSetting = ({ onClose }) => {
                                 </div>
                             </div>
                         </div>
-                        <div className={styles.userPosts}>
-
-
-                        </div>
                     </div>
                 </div>
             </section>
