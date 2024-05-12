@@ -28,7 +28,10 @@ const Letter = ({ onClose }) => {
 
   const closeSignUpDeveloper = useCallback(() => {
     setSignUpDeveloperOpen(false);
-  }, []);
+    if (onClose) {
+      onClose();
+    }
+  }, [onClose]);
 
   return (
     <>

@@ -28,3 +28,169 @@
     gap: var(--gap-27xl);
   }
 }
+.email,
+.name {
+  position: relative;
+}
+.name {
+  width: 57px;
+  font-size: var(--font-size-xl);
+  font-family: var(--font-poiret-one);
+  color: var(--color-black);
+  text-align: left;
+  display: inline-block;
+}
+.email {
+  border: 1px solid var(--color-gray-200);
+  outline: 0;
+  background-color: transparent;
+  align-self: stretch;
+  height: 60px;
+  box-sizing: border-box;
+  min-width: 250px;
+}
+.inputFields {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.email1,
+.email2 {
+  position: relative;
+}
+.email1 {
+  width: 57px;
+  font-size: var(--font-size-xl);
+  font-family: var(--font-poiret-one);
+  color: var(--color-black);
+  text-align: left;
+  display: inline-block;
+}
+.email2 {
+  border: 1px solid var(--color-gray-200);
+  outline: 0;
+  background-color: transparent;
+  align-self: stretch;
+  height: 60px;
+  box-sizing: border-box;
+  min-width: 250px;
+}
+.inputLabels {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.password {
+  width: 169px;
+  position: relative;
+  font-size: var(--font-size-xl);
+  font-family: var(--font-poiret-one);
+  color: var(--color-black);
+  text-align: left;
+  display: inline-block;
+}
+.inputLabelsChild {
+  border: 1px solid var(--color-gray-200);
+  outline: 0;
+  background-color: transparent;
+  align-self: stretch;
+  height: 60px;
+  position: relative;
+  box-sizing: border-box;
+  min-width: 250px;
+}
+.inputLabels1 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.confirmPassword {
+  width: 169px;
+  position: relative;
+  font-size: var(--font-size-xl);
+  font-family: var(--font-poiret-one);
+  color: var(--color-black);
+  text-align: left;
+  display: inline-block;
+}
+.inputLabelsItem {
+  border: 1px solid var(--color-gray-200);
+  outline: 0;
+  background-color: transparent;
+  align-self: stretch;
+  height: 60px;
+  position: relative;
+  box-sizing: border-box;
+  min-width: 250px;
+}
+.inputLabels2,
+.passwordInputs {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.passwordInputs {
+  padding: 0 0 var(--padding-6xl);
+  gap: var(--gap-9xl);
+}
+.frameChild {
+  height: 60px;
+  width: 450px;
+  position: relative;
+  background-color: var(--color-gold);
+  display: none;
+  max-width: 100%;
+}
+.signUp {
+  position: relative;
+  font-size: var(--font-size-6xl);
+  font-family: var(--font-inter);
+  color: var(--color-white);
+  text-align: left;
+  display: inline-block;
+  min-width: 103px;
+  z-index: 1;
+}
+.formStructure,
+.rectangleParent {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.rectangleParent {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-mini) var(--padding-xl) var(--padding-base);
+  background-color: var(--color-gold);
+  align-self: stretch;
+  flex-direction: row;
+  justify-content: center;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+.rectangleParent:hover {
+  background-color: var(--color-gold-100);
+}
+.formStructure {
+  margin: 0;
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: var(--gap-9xl);
+}
+@media screen and (max-width: 450px) {
+  .confirmPassword,
+  .email1,
+  .name,
+  .password {
+    font-size: var(--font-size-base);
+  }
+}

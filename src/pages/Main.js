@@ -4,6 +4,7 @@ import PortalPopup from "../components/PortalPopup";
 import Letter from "../components/Letter";
 import Letter1 from "../components/Letter1";
 import styles from "./Main.module.css";
+import axios from 'axios'
 
 const Main = () => {
   const [isSignInOpen, setSignInOpen] = useState(false);

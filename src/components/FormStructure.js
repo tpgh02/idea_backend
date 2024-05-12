@@ -1,5 +1,6 @@
 import {useMemo, useCallback, useState} from "react";
 import styles from "./FormStructure.module.css";
+import {useNavigate} from "react-router-dom";
 import PortalPopup from "./PortalPopup";
 import SkillsetOverview from "./SkillsetOverview";
 
@@ -10,6 +11,7 @@ const FormStructure = ({
   propTextAlign,
   propMinWidth,
   propWidth,
+    onClose,
 }) => {
   const formStructureStyle = useMemo(() => {
     return {
@@ -26,15 +28,30 @@ const FormStructure = ({
     };
   }, [propTextAlign, propMinWidth, propWidth]);
 
-  const [isSkillsetOverviewOpen, setSkillsetOverviewOpen] = useState(false);
+  const navigate = useNavigate();
 
-  const openSkillsetOverview = useCallback(() => {
-    setSkillsetOverviewOpen(true);
-  }, []);
+  const onGroupButtonClick = useCallback(() => {
+      navigate("/");
+  }, [navigate]);
 
-  const closeSkillsetOverview = useCallback(() => {
-    setSkillsetOverviewOpen(false);
-  }, []);
+  const [post, setPost] = useState()
+  const changeValue = (e) => {
+    setPost({
+      ...post, [e.target.name]: e.target.value
+    })
+  }
+
+  const submitPost = (e) => {
+    e.preventDefault()
+    fetch("http://localhost:8080/members/new", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json; charset-utf-8",
+      },
+      body: JSON.stringify(post),
+    })
+        .then((res) => res.json());
+  }
 
   return (
       <>
@@ -57,22 +74,13 @@ const FormStructure = ({
           <input className={styles.inputLabelsItem} type="text" />
         </div>
       </div>
-      <button className={styles.rectangleParent} onClick={openSkillsetOverview}>
+      <button className={styles.rectangleParent} onClick={onGroupButtonClick}>
         <div className={styles.frameChild} />
         <div className={styles.signUp} style={sIGNUPStyle}>
           {sIGNUP}
         </div>
       </button>
     </form>
-      {isSkillsetOverviewOpen && (
-          <PortalPopup
-              overlayColor="rgba(113, 113, 113, 0.3)"
-              placement="Centered"
-              onOutsideClick={closeSkillsetOverview}
-          >
-            <SkillsetOverview onClose={closeSkillsetOverview} />
-          </PortalPopup>
-      )}
     </>
   );
 };

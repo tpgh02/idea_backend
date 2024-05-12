@@ -1,20 +1,29 @@
-import { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import {useCallback, useState} from "react";
 import SkillsetOverview from "./SkillsetOverview";
 import styles from "./SignUpDeveloper1.module.css";
+import PortalPopup from "./PortalPopup";
+import MypagePost from "./MypagePost";
 
 const SignUpDeveloper1 = ({ onClose }) => {
-  const navigate = useNavigate();
 
-  const onQuillescapeIconClick = useCallback(() => {
-      if (onClose) {
-          onClose();
-      }
-  }, [onClose]);
+    const [isSkillsetOverViewOpen, setSkillsetOverViewOpen] = useState(false);
 
-  const onGroupContainerClick = useCallback(() => {
-    navigate("/");
-  }, [navigate]);
+    const onQuillescapeIconClick = useCallback(() => {
+          if (onClose) {
+              onClose();
+          }
+      }, [onClose]);
+
+    const openSkillsetOverView = useCallback(() => {
+        setSkillsetOverViewOpen(true);
+    }, []);
+
+    const closeSkillsetOverView = useCallback(() => {
+        setSkillsetOverViewOpen(false);
+        if (onClose) {
+            onClose();
+        }
+    }, [onClose]);
 
   return (
     <div className={styles.signUpDeveloper2}>
@@ -32,10 +41,9 @@ const SignUpDeveloper1 = ({ onClose }) => {
           <h1 className={styles.ida}>idéa</h1>
         </div>
       </section>
-      <SkillsetOverview />
-      <div className={styles.rectangleParent} onClick={onGroupContainerClick}>
+      <div className={styles.rectangleParent} onClick={openSkillsetOverView}>
         <div className={styles.frameChild} />
-        <div className={styles.signUp}>SIGN UP</div>
+        <div className={styles.signUp}>NEXT</div>
       </div>
     </div>
   );
