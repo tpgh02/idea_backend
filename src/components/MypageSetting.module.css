@@ -129,6 +129,7 @@
   background-color: var(--color-whitesmoke);
   display: none;
 }
+.div4,
 .div2 {
   flex: 1;
   position: relative;
@@ -206,26 +207,22 @@
   gap: var(--gap-57xl);
   max-width: 100%;
 }
-.div4 {
-  width: 92px;
-  position: relative;
-  display: inline-block;
-  flex-shrink: 0;
-  debug_commit: 1de1738;
-}
 .email1,
 .wrapper {
   box-sizing: border-box;
 }
 .wrapper {
+  width: 95px;
   height: 24px;
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-self: stretch;
   justify-content: flex-start;
   padding: 0;
   cursor: pointer;
+  position: relative;
 }
+
 .email1 {
   border: 1px solid var(--color-gray-200);
   outline: 0;
@@ -306,8 +303,5 @@
   }
   .profileSettings {
     gap: var(--gap-lgi);
-  }
-  .div4 {
-    font-size: var(--font-size-base);
   }
 }

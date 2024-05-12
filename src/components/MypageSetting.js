@@ -34,9 +34,7 @@ const MypageSetting = ({ onClose }) => {
             </div>
             <section className={styles.navigation}>
                 <div className={styles.profileNavigation}>
-                    <div className={styles.userInformation}>
-                        <div className={styles.divn}>이름</div>
-                    </div>
+
                     <div className={styles.profileSettingsParent}>
                         <div className={styles.profileSettings}>
                             <div className={styles.profileModification}>
@@ -44,27 +42,28 @@ const MypageSetting = ({ onClose }) => {
                                     <div className={styles.profileData}>
                                         <div className={styles.div1}>마이페이지</div>
                                     </div>
-                                    <div className={styles.editProfileChild} />
+                                    <div className={styles.editProfileChild}/>
                                     <div className={styles.rectangleParent}>
-                                        <div className={styles.frameChild} />
-                                        <div className={styles.div2} onClick={openMypagePost}>
-                                            내 정보 수정
-                                        </div>
+                                        <div className={styles.frameChild}/>
+                                        <div className={styles.div2}>내 정보 수정</div>
+                                    </div>
+                                        <div className={styles.wrapper} onClick={openMypagePost}>
+                                        <div className={styles.div4}>내가 쓴 글</div>
                                     </div>
                                 </div>
                             </div>
                             <div className={styles.emailInput}>
-                                <input className={styles.email} type="text" />
+                                <div className={styles.divn}>이름</div>
+                                <input className={styles.email} type="text"/>
                                 <div className={styles.div3}>이메일</div>
+                                <div className={styles.postInput}>
+                                    <input className={styles.email1} type="text"/>
+                                </div>
                             </div>
                         </div>
                         <div className={styles.userPosts}>
-                            <div className={styles.wrapper} onClick={openMypagePost}>
-                                <div className={styles.div4}>내가 쓴 글</div>
-                            </div>
-                            <div className={styles.postInput}>
-                                <input className={styles.email1} type="text" />
-                            </div>
+
+
                         </div>
                     </div>
                 </div>
