@@ -7,8 +7,10 @@ const SignUpDeveloper1 = ({ onClose }) => {
   const navigate = useNavigate();
 
   const onQuillescapeIconClick = useCallback(() => {
-    navigate("/");
-  }, [navigate]);
+      if (onClose) {
+          onClose();
+      }
+  }, [onClose]);
 
   const onGroupContainerClick = useCallback(() => {
     navigate("/");

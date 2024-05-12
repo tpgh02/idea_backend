@@ -1,15 +1,15 @@
 import { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
 import FrameComponent from "./FrameComponent5";
 import FormStructure from "./FormStructure";
 import styles from "./SignUpNormal.module.css";
 
 const SignUpNormal = ({ onClose }) => {
-  const navigate = useNavigate();
 
   const onQuillescapeIconClick = useCallback(() => {
-    navigate("/");
-  }, [navigate]);
+      if (onClose) {
+          onClose();
+      }
+  }, [onClose]);
 
   return (
     <div className={styles.signUpNormal}>

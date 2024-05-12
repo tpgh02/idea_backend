@@ -1,6 +1,7 @@
-import { useMemo, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import {useMemo, useCallback, useState} from "react";
 import styles from "./FormStructure.module.css";
+import PortalPopup from "./PortalPopup";
+import SkillsetOverview from "./SkillsetOverview";
 
 const FormStructure = ({
   sIGNUP,
@@ -25,13 +26,18 @@ const FormStructure = ({
     };
   }, [propTextAlign, propMinWidth, propWidth]);
 
-  const navigate = useNavigate();
+  const [isSkillsetOverviewOpen, setSkillsetOverviewOpen] = useState(false);
 
-  const onGroupButtonClick = useCallback(() => {
-    navigate("/");
-  }, [navigate]);
+  const openSkillsetOverview = useCallback(() => {
+    setSkillsetOverviewOpen(true);
+  }, []);
+
+  const closeSkillsetOverview = useCallback(() => {
+    setSkillsetOverviewOpen(false);
+  }, []);
 
   return (
+      <>
     <form className={styles.formStructure} style={formStructureStyle}>
       <div className={styles.inputFields}>
         <div className={styles.name}>Name</div>
@@ -51,13 +57,23 @@ const FormStructure = ({
           <input className={styles.inputLabelsItem} type="text" />
         </div>
       </div>
-      <button className={styles.rectangleParent} onClick={onGroupButtonClick}>
+      <button className={styles.rectangleParent} onClick={openSkillsetOverview}>
         <div className={styles.frameChild} />
         <div className={styles.signUp} style={sIGNUPStyle}>
           {sIGNUP}
         </div>
       </button>
     </form>
+      {isSkillsetOverviewOpen && (
+          <PortalPopup
+              overlayColor="rgba(113, 113, 113, 0.3)"
+              placement="Centered"
+              onOutsideClick={closeSkillsetOverview}
+          >
+            <SkillsetOverview onClose={closeSkillsetOverview} />
+          </PortalPopup>
+      )}
+    </>
   );
 };
 

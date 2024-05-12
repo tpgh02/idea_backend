@@ -1,10 +1,8 @@
 import { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
 import LoginForm from "./LoginForm";
 import styles from "./SignIn.module.css";
 
 const SignIn = ({ onClose }) => {
-  const navigate = useNavigate();
 
   const onQuillescapeIconClick = useCallback(() => {
       if (onClose) {
