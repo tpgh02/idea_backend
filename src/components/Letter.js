@@ -20,7 +20,10 @@ const Letter = ({ onClose }) => {
 
   const closeSignUpNormal = useCallback(() => {
     setSignUpNormalOpen(false);
-  }, []);
+    if (onClose) {
+      onClose();
+    }
+  }, [onClose]);
 
   const openSignUpDeveloper = useCallback(() => {
     setSignUpDeveloperOpen(true);

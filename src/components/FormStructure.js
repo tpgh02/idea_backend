@@ -9,7 +9,8 @@ const FormStructure = ({
   emailWidth,
   propTextAlign,
   propMinWidth,
-  propWidth
+  propWidth,
+  onClose
 }) => {
   const formStructureStyle = useMemo(() => {
     return {
@@ -28,9 +29,15 @@ const FormStructure = ({
 
   const navigate = useNavigate();
 
-  const onGroupButtonClick = useCallback(() => {
-      navigate("/");
-  }, [navigate]);
+  const [isMypagePostOpen, setFromStructureOpen] = useState(false);
+
+  const closeFormStructure = useCallback(() => {
+    setFromStructureOpen(false);
+    if (onClose) {
+      onClose();
+    }
+    navigate("/");
+  }, [onClose, navigate]);
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -44,17 +51,17 @@ const FormStructure = ({
       email: email,
       password1: password1,
       password2: password2,
+      memberClassify : "NORMAL",
     };
     axios.post("http://localhost:8080/members/new", newMember)
         .then((response) => {
           console.log("user added successfully.");
-          navigate("/main-log-in");
+          closeFormStructure(); // closeFormStructure 함수 호출 추가
         })
         .catch((error) => {
           console.log("Error while adding member:", error);
           alert(error.response.data.message);
         });
-
   }
 
   return (
