@@ -4,6 +4,7 @@ import {useNavigate} from "react-router-dom";
 import PortalPopup from "../components/PortalPopup";
 import MypageSetting from "../components/MypageSetting";
 import axios from "axios";
+import {Scrollbars} from "react-custom-scrollbars-2";
 
 const Developers = () => {
     const [isMypageSettingOpen, setMypageSettingOpen] = useState(false);
@@ -81,22 +82,30 @@ const Developers = () => {
 
                 <div className={styles.middle2}>
                     <div className={styles.searchField}>
+                        <input
+                            className={styles.placeholderLabel}
+                            placeholder="검색"
+                            type="text"
+                        />
                         <img
                             className={styles.searchGlyph}
                             loading="lazy"
                             alt=""
                             src="/search.svg"
                         />
-                        <input
-                            className={styles.placeholderLabel}
-                            placeholder="검색"
-                            type="text"
-                        />
                     </div>
                 </div>
-
                 <div className={styles.bottom}>
                     <div className={styles.ideaPost}>
+                        <Scrollbars
+                            thumbsize={85}
+                            renderTrackHorizontal={props => <div {...props} className={"track-horizontal"}/>}
+                            renderTrackVertical={({style, ...props}) => {
+                                return <div {...props} className={"track-vertical"} style={{...style, width : 20}}/>
+                            }}
+                            renderThumbHorizontal={props => <div {...props} className={"thumb-horizontal"}/>}
+                            renderThumbVertical={props => <div {...props} className={"thumb-vertical"}/>}
+                            renderView={props => <div {...props} className="view"/>}>
                         <div className={styles.developerList}>
                             {developerList.map((developer, index) => (
                                 <div key={index} className={styles.developer}>
@@ -108,6 +117,7 @@ const Developers = () => {
                                 </div>
                             ))}
                         </div>
+                        </Scrollbars>
                     </div>
                 </div>
             </div>
