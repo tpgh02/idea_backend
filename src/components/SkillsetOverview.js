@@ -52,6 +52,7 @@ const SkillSetOverview = ({onClose}) => {
         axios.post("http://localhost:8080/members/new", newMember)
             .then((response) => {
                 console.log("user added successfully.");
+                localStorage.clear();
                 onGroupContainer4Click();
             })
             .catch((error) => {

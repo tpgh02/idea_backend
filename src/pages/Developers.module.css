@@ -79,10 +79,6 @@
   height: 31px;
 }
 
-
-
-
-
 .placeholderLabel,
 .searchGlyph {
   line-height: 22px;
@@ -135,10 +131,11 @@
   align-content: center;
 }
 .ideaPost {
+  padding-top : 50px;
   width: 640px;
   height: 768px;
   overflow-y: auto;
-  font-size: var(--font-size-29xl);
+  font-size: 25px;
   margin: auto;
 }
 
@@ -148,4 +145,17 @@
   display: flex;
   margin: 0 auto;
   padding: 20px 20px 0 20px;
+}
+
+.developerList {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.developer {
+  border: 2px solid var(--color-gold);;
+  padding: 10px;
+  margin-bottom: 1px;
+  flex-direction: row;
 }

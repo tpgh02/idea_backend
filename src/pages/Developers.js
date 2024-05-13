@@ -1,12 +1,14 @@
 import styles from "./Developers.module.css";
-import {useCallback, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import PortalPopup from "../components/PortalPopup";
 import MypageSetting from "../components/MypageSetting";
+import axios from "axios";
 
 const Developers = () => {
     const [isMypageSettingOpen, setMypageSettingOpen] = useState(false);
     const navigate = useNavigate();
+    const [developerList, setDeveloperList] = useState([]);
 
     const onTextClick = useCallback(() => {
         navigate("/");
@@ -36,10 +38,25 @@ const Developers = () => {
         navigate("/developers1");
     }, [navigate]);
 
+    const fetchData = useCallback(() => {
+        axios.get("http://localhost:8080/members/developers")
+            .then((res) => {
+                console.log(res.data);
+                setDeveloperList(res.data);
+            })
+            .catch((err) => {
+                console.log(err);
+                alert(err.response.data.message);
+            });
+    }, [])
+
+    useEffect(()=> {
+        fetchData();
+    }, [fetchData]);
+
     return (
         <>
             <div className={styles.main}>
-
                 <div className={styles.top}>
                     <h1 className={styles.ida} onClick={onIdeaClick}>idéa</h1>
                     <div className={styles.div} onClick={onTextClick}>
@@ -80,9 +97,17 @@ const Developers = () => {
 
                 <div className={styles.bottom}>
                     <div className={styles.ideaPost}>
-                        <h1 className={styles.h1}>
-                            <p className={styles.p}>{`개발자 목록`}</p>
-                        </h1>
+                        <div className={styles.developerList}>
+                            {developerList.map((developer, index) => (
+                                <div key={index} className={styles.developer}>
+                                    <div>이름 : {developer.name}, 이메일 : {developer.email}</div>
+                                    <div>가용 언어 : {developer.language}</div>
+                                    <div>개발 경험 : {developer.experience}</div>
+                                    <div>기술 : {developer.skill}</div>
+                                    <div>기타 : {developer.etc}</div>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -92,7 +117,7 @@ const Developers = () => {
                     placement="Centered"
                     onOutsideClick={closeMypageSetting}
                 >
-                    <MypageSetting onClose={closeMypageSetting} />
+                    <MypageSetting onClose={closeMypageSetting}/>
                 </PortalPopup>
             )}
         </>
