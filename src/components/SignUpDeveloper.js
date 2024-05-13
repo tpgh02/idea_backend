@@ -100,7 +100,7 @@ const SignUpDeveloper = ({ onClose }) => {
                         <div className={styles.password}>Password</div>
                         <input className={styles.inputLabelsChild} onChange={(event) => {setPassword1(event.target.value)}}
                                value={password1}
-                               type="text"
+                               type="password"
                                id="password1"
                                name="password1"
                                required/>
@@ -109,7 +109,7 @@ const SignUpDeveloper = ({ onClose }) => {
                         <div className={styles.confirmPassword}>Confirm Password</div>
                         <input className={styles.inputLabelsItem} onChange={(event) => {setPassword2(event.target.value)}}
                                value={password2}
-                               type="text"
+                               type="password"
                                id="password2"
                                name="password2"
                                required/>

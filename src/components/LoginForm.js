@@ -50,7 +50,7 @@ const LoginForm = () => {
         <div className={styles.password}>Password</div>
         <input className={styles.loginAreasChild} onChange={(event) => {setPassword(event.target.value)}}
                value={password}
-               type="text"
+               type="password"
                id="password"
                name="password"
                required/>

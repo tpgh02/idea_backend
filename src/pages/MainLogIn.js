@@ -32,11 +32,16 @@ const MainLogIn = () => {
     navigate("/developers1");
   }, [navigate]);
 
+  const post = useCallback(() => {
+    navigate("/post");
+  }, [navigate]);
+
   return (
       <>
         <div className={styles.main}>
 
           <div className={styles.top}>
+            <div className={styles.post} onClick={post}> 게시글 작성 </div>
             <h1 className={styles.ida}>idéa</h1>
             <div className={styles.div} onClick={onTextClick}>
               로그아웃
@@ -60,16 +65,16 @@ const MainLogIn = () => {
 
           <div className={styles.middle2}>
             <div className={styles.searchField}>
+              <input
+                  className={styles.placeholderLabel}
+                  placeholder="검색"
+                  type="text"
+              />
               <img
                   className={styles.searchGlyph}
                   loading="lazy"
                   alt=""
                   src="/search.svg"
-              />
-              <input
-                  className={styles.placeholderLabel}
-                  placeholder="검색"
-                  type="text"
               />
             </div>
           </div>

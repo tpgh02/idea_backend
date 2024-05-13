@@ -5,6 +5,7 @@ import Board from "./pages/Board";
 import Developers from "./pages/Developers";
 import Developers1 from "./pages/Developers1";
 import MainLogIn from "./pages/MainLogIn";
+import Post from "./pages/Post";
 
 const routeData = {
   "/": { title: "", metaDescription: "" },
@@ -48,6 +49,7 @@ function App() {
         <Route path="/developers" element={<Developers />} />
         <Route path="/developers1" element={<Developers1 />} />
         <Route path="/main-log-in" element={<MainLogIn />} />
+        <Route path="/post" element={<Post />} />
       </Routes>
   );
 }

@@ -99,6 +99,7 @@
   white-space: nowrap;
   min-width: 20px;
   max-width: 100%;
+  outline: none;
 }
 .searchField {
   top: 302px;
