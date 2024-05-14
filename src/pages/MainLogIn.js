@@ -1,12 +1,16 @@
-import { useState, useCallback } from "react";
+import {useState, useCallback, useEffect} from "react";
 import MypageSetting from "../components/MypageSetting";
 import PortalPopup from "../components/PortalPopup";
 import { useNavigate } from "react-router-dom";
 import styles from "./MainLogIn.module.css";
+import axios from "axios";
 
 const MainLogIn = () => {
   const [isMypageSettingOpen, setMypageSettingOpen] = useState(false);
   const navigate = useNavigate();
+
+  const [developer, setDeveloper] = useState([]);
+  const [post, setPost] = useState([]);
 
   const onTextClick = useCallback(() => {
     navigate("/");
@@ -33,16 +37,34 @@ const MainLogIn = () => {
     navigate("/developers1");
   }, [navigate]);
 
-  const post = useCallback(() => {
+  const onPost = useCallback(() => {
     navigate("/post");
   }, [navigate]);
+
+  const fetchData = useCallback(() => {
+    axios.get("http://localhost:8080/home")
+        .then((res) => {
+          console.log(res.data);
+          setDeveloper(res.data.memberData);
+          setPost(res.data.boardData);
+
+        })
+        .catch((err) => {
+          console.log(err);
+          alert(err.response.data.message);
+        });
+  }, [])
+
+  useEffect(()=> {
+    fetchData();
+  }, [fetchData]);
 
   return (
       <>
         <div className={styles.main}>
 
           <div className={styles.top}>
-            <div className={styles.post} onClick={post}> 게시글 작성 </div>
+            <div className={styles.onPost} onClick={onPost}> 게시글 작성 </div>
             <h1 className={styles.ida}>idéa</h1>
             <div className={styles.div} onClick={onTextClick}>
               로그아웃
@@ -82,26 +104,45 @@ const MainLogIn = () => {
 
           <div className={styles.bottom}>
             <div className={styles.ideaPost}>
-              <h1 className={styles.h1}>
-                <p className={styles.p}>{`아이디어 게시판 미리보기`}</p>
-              </h1>
+              {
+                post == null
+                    ? <div className={styles.defaultPost}> 게시글이 없습니다. </div>
+                    : <div className={styles.post}>
+                      <div className={styles.postTop}>
+                        <div className={styles.title}>{post.title}</div>
+                        <div> 작성자 : {post.writerName}</div>
+                        <div> 이메일 : {post.writerEmail}</div>
+                        <div> 작성일시 : {post.createdDate} </div>
+                      </div>
+
+                      <div>{post.content}</div>
+                    </div>
+              }
             </div>
             <div className={styles.developerList}>
-              <h1 className={styles.h11}>
-                <p className={styles.p1}>{`개발자 목록 미리보기`}</p>
-              </h1>
+              {
+                developer == null
+                    ? <div> 유저가 없습니다. </div>
+                    : <div className={styles.developer}>
+                      <div>이름 : {developer.name}, 이메일 : {developer.email}</div>
+                      <div>가용 언어 : {developer.language}</div>
+                      <div>개발 경험 : {developer.experience}</div>
+                      <div>기술 : {developer.skill}</div>
+                      <div>기타 : {developer.etc}</div>
+                    </div>
+              }
             </div>
           </div>
         </div>
 
         {isMypageSettingOpen && (
-        <PortalPopup
-          overlayColor="rgba(113, 113, 113, 0.3)"
-          placement="Centered"
-        >
-          <MypageSetting onClose={closeMypageSetting} />
-        </PortalPopup>
-      )}
+            <PortalPopup
+                overlayColor="rgba(113, 113, 113, 0.3)"
+                placement="Centered"
+            >
+              <MypageSetting onClose={closeMypageSetting}/>
+            </PortalPopup>
+        )}
       </>
   );
 };
