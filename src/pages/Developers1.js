@@ -1,12 +1,16 @@
-import { useState, useCallback } from "react";
+import {useState, useCallback, useEffect} from "react";
 import MypageSetting from "../components/MypageSetting";
 import PortalPopup from "../components/PortalPopup";
 import { useNavigate } from "react-router-dom";
 import styles from "./Developers1.module.css";
+import {Scrollbars} from "react-custom-scrollbars-2";
+import axios from "axios";
 
 const Developers1 = () => {
   const [isMypageSettingOpen, setMypageSettingOpen] = useState(false);
   const navigate = useNavigate();
+  const [postList, setPostList] = useState([]);
+  const [memberId, setMemberId] = useState()
 
   const onTextClick = useCallback(() => {
     navigate("/");
@@ -37,6 +41,23 @@ const Developers1 = () => {
     navigate("/developers1");
   }, [navigate]);
 
+  const fetchData = useCallback(() => {
+    const memberId = JSON.parse(localStorage.getItem("member")).id;
+    axios.get(`http://localhost:8080/boards/mylist/${memberId}`)
+        .then((res) => {
+          console.log(res.data);
+          setPostList(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+          alert(err.response.data.message);
+        });
+  }, []);
+
+  useEffect(()=> {
+    fetchData();
+  }, []);
+
   return (
       <>
         <div className={styles.main}>
@@ -65,25 +86,50 @@ const Developers1 = () => {
 
           <div className={styles.middle2}>
             <div className={styles.searchField}>
+              <input
+                  className={styles.placeholderLabel}
+                  placeholder="검색"
+                  type="text"
+              />
               <img
                   className={styles.searchGlyph}
                   loading="lazy"
                   alt=""
                   src="/search.svg"
               />
-              <input
-                  className={styles.placeholderLabel}
-                  placeholder="검색"
-                  type="text"
-              />
             </div>
           </div>
 
           <div className={styles.bottom}>
             <div className={styles.ideaPost}>
-              <h1 className={styles.h1}>
-                <p className={styles.p}>{`내가 쓴 글 목록`}</p>
-              </h1>
+              <Scrollbars
+                  thumbsize={85}
+                  renderTrackHorizontal={props => <div {...props} className={"track-horizontal"}/>}
+                  renderTrackVertical={({style, ...props}) => {
+                    return <div {...props} className={"track-vertical"} style={{...style, width : 20}}/>
+                  }}
+                  renderThumbHorizontal={props => <div {...props} className={"thumb-horizontal"}/>}
+                  renderThumbVertical={props => <div {...props} className={"thumb-vertical"}/>}
+                  renderView={props => <div {...props} className="view"/>}>
+                {
+                  postList.length === 0
+                      ? <div className={styles.defaultPost}> 게시글이 없습니다. </div>
+                      : <div className={styles.postList}>
+                        {postList.map((post, index) => (
+                            <div key={index} className={styles.post}>
+                              <div className={styles.postTop}>
+                                <div className={styles.title}>{post.title}</div>
+                                <div> 작성자 : {post.writerName}</div>
+                                <div> 이메일 : {post.writerEmail}</div>
+                                <div> 작성일시 : {post.createdDate} </div>
+                              </div>
+
+                              <div>{post.content}</div>
+                            </div>
+                        ))}
+                      </div>
+                }
+              </Scrollbars>
             </div>
           </div>
         </div>
@@ -92,7 +138,7 @@ const Developers1 = () => {
                 overlayColor="rgba(113, 113, 113, 0.3)"
                 placement="Centered"
             >
-              <MypageSetting onClose={closeMypageSetting} />
+              <MypageSetting onClose={closeMypageSetting}/>
             </PortalPopup>
         )}
       </>

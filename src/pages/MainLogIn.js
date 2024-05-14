@@ -122,7 +122,7 @@ const MainLogIn = () => {
             <div className={styles.developerList}>
               {
                 developer == null
-                    ? <div> 유저가 없습니다. </div>
+                    ? <div className={styles.defaultPost}> 개발자가 없습니다. </div>
                     : <div className={styles.developer}>
                       <div>이름 : {developer.name}, 이메일 : {developer.email}</div>
                       <div>가용 언어 : {developer.language}</div>
