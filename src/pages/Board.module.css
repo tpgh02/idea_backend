@@ -136,10 +136,11 @@
   align-content: center;
 }
 .ideaPost {
+  padding-top : 50px;
   width: 640px;
   height: 768px;
   overflow-y: auto;
-  font-size: var(--font-size-29xl);
+  font-size: 15px;
   margin: auto;
 }
 
@@ -149,4 +150,74 @@
   display: flex;
   margin: 0 auto;
   padding: 20px 20px 0 20px;
+}
+
+.postList {
+  display: flex;
+  flex-direction: column;
+}
+
+.post {
+  border: 2px solid rgb(248,240,202);
+  border-radius: 10px;
+  padding: 30px;
+  margin-bottom: 10px;
+  flex-direction: row;
+  font-weight: 800;
+  line-height: 1.5;
+}
+.title{
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+.postTop{
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+
+
+
+
+
+
+
+
+
+
+.track-vertical {
+  top:11px;
+  width: 50px;
+  bottom: 2px;
+  right: 6px;
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.111);
+}
+
+.track-vertical,
+.thumb-vertical {
+  position : relative;
+  display: block;
+  width: 90%;
+  cursor: pointer;
+  border-radius: inherit;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.track-horizontal {
+  position : absolute;
+  height: 6px;
+  right: 2px;
+  bottom: 2px;
+  left: 2px;
+  border-radius: 3px;
+}
+
+.track-horizontal,
+.thumb-horizontal {
+  position : relative;
+  display: block;
+  height: 100%;
+  cursor: pointer;
+  border-radius: inherit;
 }
