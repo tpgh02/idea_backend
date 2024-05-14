@@ -1,0 +1,162 @@
+.main{
+  flex-direction: column;
+}
+.top,
+.middle1,
+.middle2,
+.bottom{
+  display: flex;
+}
+
+.div1,
+.div{
+  margin-left : 500px;
+}
+.ida {
+  display: inline-block;
+  padding-left : 180px;
+  margin : auto;
+  font-size: var(--font-size-77xl);
+  font-weight: 112;
+  font-family: var(--font-poiret-one);
+  color: var(--color-gold);
+}
+.div,
+.div1{
+  margin: 10px 10px 0px 10px;
+  height: 20px;
+}
+.div{
+  border-right : 1px solid var(--color-gray-100);
+  padding: 0px 10px 0px 0px;
+}
+.div1{
+  background-color: var(--color-gold)
+}
+
+
+.middle1{
+  margin:auto;
+}
+.div2,
+.div3,
+.div4{
+  margin: 10px;
+}
+
+.div2,
+.div3,
+.div4{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-size: 20px;
+  align-content: center;
+}
+.div3{
+  border-left : 1px solid var(--color-gray-100);
+  border-right : 1px solid var(--color-gray-100);
+  padding: 10px 20px 10px 20px;
+}
+
+.div,
+.div1,
+.div2,
+.div3,
+.div4{
+  cursor: pointer;
+}
+
+.preBar {
+  position: absolute;
+  top: 33.5px;
+  left: 1333.5px;
+  backdrop-filter: blur(4px);
+  border-right: 1px solid var(--color-gray-100);
+  box-sizing: border-box;
+  width: 1px;
+  height: 31px;
+}
+
+
+
+
+
+.placeholderLabel,
+.searchGlyph {
+  line-height: 22px;
+  display: inline-block;
+}
+.searchGlyph {
+  width: 23px;
+  flex-shrink: 0;
+  padding-right: 5px;
+}
+.placeholderLabel {
+  height: 22px;
+  flex: 1;
+  background-color: rgba(0, 0, 0, 0);
+  border : 0;
+  white-space: nowrap;
+  min-width: 20px;
+  max-width: 100%;
+  outline: none;
+}
+.searchField {
+  top: 302px;
+  left: 445px;
+  border-radius: var(--br-3xs);
+  background-color: var(--fills-tertiary);
+  width: 550px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-6xs) var(--padding-5xs);
+  box-sizing: border-box;
+  max-width: 100%;
+  row-gap: 20px;
+  text-align: left;
+  font-size: var(--font-size-mid);
+  color: var(--labels-secondary);
+  font-family: var(--font-sf-pro);
+  margin : auto;
+}
+
+
+.bottom{
+  padding-top: 100px;
+}
+.h1,
+.h11{
+  margin: auto;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+  display: inline-block;
+  width: 511px;
+  height: 154px;
+}
+
+.developerList,
+.ideaPost {
+  top: 419px;
+  left: 40px;
+  width: 640px;
+  height: 768px;
+  overflow-y: auto;
+  font-size: var(--font-size-31xl);
+}
+
+.ideaPost{
+  border-right : 1px solid var(--color-gray-100);
+}
+
+.main {
+  max-width: 1024px;
+  background-color: var(--color-white);
+  display: flex;
+  margin: 0 auto;
+  padding: 20px 20px 0 20px;
+}
+
