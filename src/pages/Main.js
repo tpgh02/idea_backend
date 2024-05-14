@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import {useState, useCallback, useEffect} from "react";
 import SignIn from "../components/SignIn";
 import PortalPopup from "../components/PortalPopup";
 import Letter from "../components/Letter";
@@ -10,6 +10,9 @@ const Main = () => {
   const [isSignInOpen, setSignInOpen] = useState(false);
   const [isLetter1Open, setLetter1Open] = useState(false);
   const [isLetter2Open, setLetter2Open] = useState(false);
+
+  const [developer, setDeveloper] = useState([]);
+  const [post, setPost] = useState([]);
 
   const openSignIn = useCallback(() => {
     setSignInOpen(true);
@@ -34,6 +37,24 @@ const Main = () => {
   const closeLetter2 = useCallback(() => {
     setLetter2Open(false);
   }, []);
+
+  const fetchData = useCallback(() => {
+    axios.get("http://localhost:8080/home")
+        .then((res) => {
+          console.log(res.data);
+          setDeveloper(res.data.memberData);
+          setPost(res.data.boardData);
+
+        })
+        .catch((err) => {
+          console.log(err);
+          alert(err.response.data.message);
+        });
+  }, [])
+
+  useEffect(()=> {
+    fetchData();
+  }, [fetchData]);
 
   return (
     <>
@@ -62,31 +83,38 @@ const Main = () => {
         </div>
 
         <div className={styles.middle2}>
-          <div className={styles.searchField}>
-            <img
-                className={styles.searchGlyph}
-                loading="lazy"
-                alt=""
-                src="/search.svg"
-            />
-            <input
-                className={styles.placeholderLabel}
-                placeholder="검색"
-                type="text"
-            />
-          </div>
+
         </div>
 
         <div className={styles.bottom}>
           <div className={styles.ideaPost}>
-            <h1 className={styles.h1}>
-              <p className={styles.p}>{`아이디어 게시판 미리보기`}</p>
-            </h1>
+            {
+              post == null
+                  ? <div className={styles.defaultPost}> 게시글이 없습니다. </div>
+                  : <div className={styles.post}>
+                    <div className={styles.postTop}>
+                      <div className={styles.title}>{post.title}</div>
+                      <div> 작성자 : {post.writerName}</div>
+                      <div> 이메일 : {post.writerEmail}</div>
+                      <div> 작성일시 : {post.createdDate} </div>
+                    </div>
+
+                    <div>{post.content}</div>
+                  </div>
+            }
           </div>
           <div className={styles.developerList}>
-            <h1 className={styles.h11}>
-              <p className={styles.p1}>{`개발자 목록 미리보기`}</p>
-            </h1>
+            {
+              developer == null
+                  ? <div className={styles.defaultPost}> 개발자가 없습니다. </div>
+                  : <div className={styles.developer}>
+                    <div>이름 : {developer.name}, 이메일 : {developer.email}</div>
+                    <div>가용 언어 : {developer.language}</div>
+                    <div>개발 경험 : {developer.experience}</div>
+                    <div>기술 : {developer.skill}</div>
+                    <div>기타 : {developer.etc}</div>
+                  </div>
+            }
           </div>
         </div>
       </div>

@@ -140,18 +140,20 @@
 
 .developerList,
 .ideaPost {
-  top: 419px;
-  left: 40px;
   width: 640px;
   height: 768px;
   overflow-y: auto;
-  font-size: var(--font-size-31xl);
+  font-size: 15px;
+  margin: auto;
 }
 
 .ideaPost{
   border-right : 1px solid var(--color-gray-100);
 }
-
+.defaultPost{
+  font-size: 30px;
+  text-align: center;
+}
 .main {
   max-width: 1024px;
   background-color: var(--color-white);
@@ -160,3 +162,50 @@
   padding: 20px 20px 0 20px;
 }
 
+.developer {
+  background-color: rgb(248,240,202);
+  border-radius: 10px;
+  padding: 30px;
+  margin-bottom: 10px;
+  flex-direction: row;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.postList {
+  display: flex;
+  flex-direction: column;
+}
+
+.post {
+  border: 2px solid rgb(248,240,202);
+  border-radius: 10px;
+  padding: 30px;
+  margin-bottom: 10px;
+  flex-direction: row;
+  font-weight: 800;
+  line-height: 1.5;
+}
+.title{
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+.postTop{
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+.developerList {
+  display: flex;
+  flex-direction: column;
+}
+
+.developer {
+  background-color: rgb(248,240,202);
+  border-radius: 10px;
+  padding: 30px;
+  margin-bottom: 10px;
+  flex-direction: row;
+  font-weight: 800;
+  line-height: 1.5;
+}

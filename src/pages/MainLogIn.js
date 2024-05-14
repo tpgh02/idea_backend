@@ -1,5 +1,6 @@
 import {useState, useCallback, useEffect} from "react";
 import MypageSetting from "../components/MypageSetting";
+import MypageSettingDeveloper from "../components/MypageSettingDeveloper";
 import PortalPopup from "../components/PortalPopup";
 import { useNavigate } from "react-router-dom";
 import styles from "./MainLogIn.module.css";
@@ -7,6 +8,7 @@ import axios from "axios";
 
 const MainLogIn = () => {
   const [isMypageSettingOpen, setMypageSettingOpen] = useState(false);
+  const [isMypageSettingDeveloperOpen, setMypageSettingDeveloperOpen] = useState(false);
   const navigate = useNavigate();
 
   const [developer, setDeveloper] = useState([]);
@@ -18,11 +20,19 @@ const MainLogIn = () => {
   }, [navigate]);
 
   const openMypageSetting = useCallback(() => {
-    setMypageSettingOpen(true);
+    if (JSON.parse(localStorage.getItem('member')).memberClassify === "NORMAL") {
+      setMypageSettingOpen(true);
+    } else {
+      setMypageSettingDeveloperOpen(true);
+    }
+
   }, []);
 
   const closeMypageSetting = useCallback(() => {
     setMypageSettingOpen(false);
+  }, []);
+  const closeMypageSettingDeveloper = useCallback(() => {
+    setMypageSettingDeveloperOpen(false);
   }, []);
 
   const onText4Click = useCallback(() => {
@@ -141,6 +151,14 @@ const MainLogIn = () => {
                 placement="Centered"
             >
               <MypageSetting onClose={closeMypageSetting}/>
+            </PortalPopup>
+        )}
+        {isMypageSettingDeveloperOpen && (
+            <PortalPopup
+                overlayColor="rgba(113, 113, 113, 0.3)"
+                placement="Centered"
+            >
+              <MypageSettingDeveloper onClose={closeMypageSettingDeveloper}/>
             </PortalPopup>
         )}
       </>

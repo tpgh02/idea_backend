@@ -10,13 +10,6 @@
   display: flex;
 }
 
-.editProfile,
-.mainContent,
-.emailInput,
-.mypageSettingInner{
-
-}
-
 .mainContent {
   display: flex;
   flex-direction: row;
