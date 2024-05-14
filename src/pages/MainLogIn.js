@@ -60,7 +60,7 @@ const MainLogIn = () => {
               개발자 목록
             </div>
             <div className={styles.div4} onClick={onText6Click}>
-              채팅 목록
+              내가 쓴 글 목록
             </div>
           </div>
 

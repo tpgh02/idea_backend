@@ -59,7 +59,7 @@ const Developers1 = () => {
               개발자 목록
             </div>
             <div className={styles.div4} onClick={onText6Click}>
-              채팅 목록
+              내가 쓴 글 목록
             </div>
           </div>
 
@@ -82,7 +82,7 @@ const Developers1 = () => {
           <div className={styles.bottom}>
             <div className={styles.ideaPost}>
               <h1 className={styles.h1}>
-                <p className={styles.p}>{`채팅 목록`}</p>
+                <p className={styles.p}>{`내가 쓴 글 목록`}</p>
               </h1>
             </div>
           </div>
