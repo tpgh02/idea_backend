@@ -10,6 +10,7 @@ const Board = () => {
 
     const onTextClick = useCallback(() => {
         navigate("/");
+        localStorage.clear();
     }, [navigate]);
 
     const onIdeaClick = useCallback(() => {
@@ -90,7 +91,6 @@ const Board = () => {
               <PortalPopup
                   overlayColor="rgba(113, 113, 113, 0.3)"
                   placement="Centered"
-                  onOutsideClick={closeMypageSetting}
         >
             <MypageSetting onClose={closeMypageSetting} />
         </PortalPopup>

@@ -2,6 +2,7 @@ import React, {useCallback, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./LoginForm.module.css";
 import axios from "axios";
+import Json from "qs";
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ const LoginForm = () => {
         })
             .then(res => {
                 console.log("user logged in successfully.", res);
-                localStorage.setItem("memberId", res.data.id);
+                localStorage.setItem("member", JSON.stringify(res.data));
                 navigate("/main-log-in");
             })
             .catch((error) => {

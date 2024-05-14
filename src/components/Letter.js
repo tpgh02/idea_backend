@@ -90,7 +90,6 @@ const Letter = ({ onClose }) => {
         <PortalPopup
           overlayColor="rgba(113, 113, 113, 0.3)"
           placement="Centered"
-          onOutsideClick={closeSignUpNormal}
         >
           <SignUpNormal onClose={closeSignUpNormal} />
         </PortalPopup>
@@ -99,7 +98,6 @@ const Letter = ({ onClose }) => {
         <PortalPopup
           overlayColor="rgba(113, 113, 113, 0.3)"
           placement="Centered"
-          onOutsideClick={closeSignUpDeveloper}
         >
           <SignUpDeveloper onClose={closeSignUpDeveloper} />
         </PortalPopup>

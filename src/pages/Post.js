@@ -4,7 +4,6 @@ import {useNavigate} from "react-router-dom";
 import PortalPopup from "../components/PortalPopup";
 import MypageSetting from "../components/MypageSetting";
 import axios from "axios";
-import {Scrollbars} from "react-custom-scrollbars-2";
 
 const Post = () => {
     const [isMypageSettingOpen, setMypageSettingOpen] = useState(false);
@@ -13,6 +12,7 @@ const Post = () => {
 
     const onTextClick = useCallback(() => {
         navigate("/");
+        localStorage.clear();
     }, [navigate]);
 
     const onIdeaClick = useCallback(() => {
@@ -39,21 +39,27 @@ const Post = () => {
         navigate("/developers1");
     }, [navigate]);
 
-    const fetchData = useCallback(() => {
-        axios.get("http://localhost:8080/members/developers")
-            .then((res) => {
-                console.log(res.data);
-                setDeveloperList(res.data);
-            })
-            .catch((err) => {
-                console.log(err);
-                alert(err.response.data.message);
-            });
-    }, [])
+    const [title, setTitle] = useState('');
+    const [content, setContent] = useState('');
 
-    useEffect(()=> {
-        fetchData();
-    }, [fetchData]);
+    const handleSave = (event) => {
+        event.preventDefault();
+        const newPost = {
+            writerId: JSON.parse(localStorage.getItem("member")).id,
+            title: title,
+            content: content,
+        };
+        axios.post("http://localhost:8080/boards/new", newPost)
+            .then((response) => {
+                console.log("post added successfully.");
+                onText4Click();
+            })
+            .catch((error) => {
+
+                console.log("Error while adding member:", error);
+                alert(error.response.data.message);
+            });
+    }
 
     return (
         <>
@@ -99,14 +105,23 @@ const Post = () => {
                     <div className={styles.ideaPost}>
                         <div className={styles.post}>
                             <input
-                                className={styles.postTitle}
+                                className={styles.postTitle} onChange={(event) => {setTitle(event.target.value)}}
                                 placeholder="제목을 입력하세요."
+                                value={title}
+                                type="text"
+                                id="title"
+                                name="title"
+                                required
                             />
                             <textarea
-                                className={styles.postContent}
+                                className={styles.postContent} onChange={(event) => {setContent(event.target.value)}}
                                 placeholder="게시글을 입력하세요."
+                                value={content}
+                                id="content"
+                                name="content"
+                                required
                             />
-                                <button className={styles.rectangleParent2}>
+                                <button className={styles.rectangleParent2} onClick={handleSave}>
                                     <div className={styles.div11}>저장</div>
                                 </button>
                             </div>
@@ -117,7 +132,6 @@ const Post = () => {
                 <PortalPopup
                     overlayColor="rgba(113, 113, 113, 0.3)"
                     placement="Centered"
-                    onOutsideClick={closeMypageSetting}
                 >
                 <MypageSetting onClose={closeMypageSetting}/>
                 </PortalPopup>

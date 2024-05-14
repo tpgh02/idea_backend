@@ -74,7 +74,6 @@ const MypageSetting = ({ onClose }) => {
                 <PortalPopup
                     overlayColor="rgba(113, 113, 113, 0.3)"
                     placement="Centered"
-                    onOutsideClick={closeMypagePost}
                 >
                     <MypagePost onClose={closeMypagePost} />
                 </PortalPopup>

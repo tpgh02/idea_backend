@@ -13,6 +13,7 @@ const Developers = () => {
 
     const onTextClick = useCallback(() => {
         navigate("/");
+        localStorage.clear();
     }, [navigate]);
 
     const onIdeaClick = useCallback(() => {
@@ -125,7 +126,6 @@ const Developers = () => {
                 <PortalPopup
                     overlayColor="rgba(113, 113, 113, 0.3)"
                     placement="Centered"
-                    onOutsideClick={closeMypageSetting}
                 >
                     <MypageSetting onClose={closeMypageSetting}/>
                 </PortalPopup>

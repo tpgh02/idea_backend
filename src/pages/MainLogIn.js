@@ -10,6 +10,7 @@ const MainLogIn = () => {
 
   const onTextClick = useCallback(() => {
     navigate("/");
+    localStorage.clear();
   }, [navigate]);
 
   const openMypageSetting = useCallback(() => {
@@ -97,7 +98,6 @@ const MainLogIn = () => {
         <PortalPopup
           overlayColor="rgba(113, 113, 113, 0.3)"
           placement="Centered"
-          onOutsideClick={closeMypageSetting}
         >
           <MypageSetting onClose={closeMypageSetting} />
         </PortalPopup>

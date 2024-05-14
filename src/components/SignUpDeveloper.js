@@ -123,7 +123,6 @@ const SignUpDeveloper = ({ onClose }) => {
                     <PortalPopup
                         overlayColor="rgba(113, 113, 113, 0.3)"
                         placement="Centered"
-                        onOutsideClick={closeSkillsetOverView}
                     >
                         <SkillsetOverview onClose={closeSkillsetOverView}/>
                     </PortalPopup>
