@@ -10,6 +10,7 @@ const Developers = () => {
     const [isMypageSettingOpen, setMypageSettingOpen] = useState(false);
     const navigate = useNavigate();
     const [developerList, setDeveloperList] = useState([]);
+    const [keyword, setKeyword] = useState("");
 
     const onTextClick = useCallback(() => {
         navigate("/");
@@ -40,6 +41,10 @@ const Developers = () => {
         navigate("/developers1");
     }, [navigate]);
 
+    const onPost = useCallback(() => {
+        navigate("/post");
+    }, [navigate]);
+
     const fetchData = useCallback(() => {
         axios.get("http://localhost:8080/members/developers")
             .then((res) => {
@@ -56,10 +61,25 @@ const Developers = () => {
         fetchData();
     }, [fetchData]);
 
+    const handleSave = (event) => {
+        event.preventDefault();
+        axios.get(`http://localhost:8080/members/search/${keyword}`)
+            .then((res) => {
+                console.log("post searched successfully.");
+                setDeveloperList(res.data);
+                console.log(res.data)
+            })
+            .catch((error) => {
+                console.log("Error while adding member:", error);
+                alert(error.response.data.message);
+            });
+    }
+
     return (
         <>
             <div className={styles.main}>
                 <div className={styles.top}>
+                    <div className={styles.onPost} onClick={onPost}> 게시글 작성</div>
                     <h1 className={styles.ida} onClick={onIdeaClick}>idéa</h1>
                     <div className={styles.div} onClick={onTextClick}>
                         로그아웃
@@ -70,7 +90,7 @@ const Developers = () => {
                 </div>
 
                 <div className={styles.middle1}>
-                    <div className={styles.div2} onClick={onText4Click}>
+                <div className={styles.div2} onClick={onText4Click}>
                         아이디어 게시판
                     </div>
                     <div className={styles.div3} onClick={onText5Click}>
@@ -85,20 +105,24 @@ const Developers = () => {
                     <div className={styles.searchField}>
                         <input
                             className={styles.placeholderLabel}
-                            placeholder="검색"
+                            placeholder="개발자의 이름 및 가용언어로 검색"
                             type="text"
+                            onChange={(event) => {
+                                setKeyword(event.target.value)
+                            }}
                         />
                         <img
                             className={styles.searchGlyph}
                             loading="lazy"
                             alt=""
                             src="/search.svg"
+                            onClick={handleSave}
                         />
                     </div>
                 </div>
                 <div className={styles.bottom}>
                     <div className={styles.ideaPost}>
-                        <Scrollbars
+                    <Scrollbars
                             thumbsize={85}
                             renderTrackHorizontal={props => <div {...props} className={"track-horizontal"}/>}
                             renderTrackVertical={({style, ...props}) => {
