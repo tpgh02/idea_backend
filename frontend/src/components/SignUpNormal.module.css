@@ -1,0 +1,36 @@
+.formContainer,
+.signUpNormal {
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.formContainer {
+  align-self: stretch;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 var(--padding-26xl);
+}
+.signUpNormal {
+  width: 540px;
+  background-color: var(--color-white);
+  overflow: hidden;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 0 0 var(--padding-9xl);
+  gap: var(--gap-73xl);
+  line-height: normal;
+  letter-spacing: normal;
+  max-height: 100%;
+}
+@media screen and (max-width: 450px) {
+  .formContainer {
+    padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);
+    box-sizing: border-box;
+  }
+  .signUpNormal {
+    gap: var(--gap-27xl);
+  }
+}
