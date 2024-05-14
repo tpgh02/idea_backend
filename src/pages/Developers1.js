@@ -10,7 +10,7 @@ const Developers1 = () => {
   const [isMypageSettingOpen, setMypageSettingOpen] = useState(false);
   const navigate = useNavigate();
   const [postList, setPostList] = useState([]);
-  const [memberId, setMemberId] = useState()
+  const [keyword, setKeyword] = useState("");
 
   const onTextClick = useCallback(() => {
     navigate("/");
@@ -41,6 +41,10 @@ const Developers1 = () => {
     navigate("/developers1");
   }, [navigate]);
 
+  const onPost = useCallback(() => {
+    navigate("/post");
+  }, [navigate]);
+
   const fetchData = useCallback(() => {
     const memberId = JSON.parse(localStorage.getItem("member")).id;
     axios.get(`http://localhost:8080/boards/mylist/${memberId}`)
@@ -58,11 +62,26 @@ const Developers1 = () => {
     fetchData();
   }, []);
 
+  const handleSave = (event) => {
+    event.preventDefault();
+    axios.get(`http://localhost:8080/members/search/${keyword}`)
+        .then((res) => {
+          console.log("post searched successfully.");
+          setPostList(res.data);
+          console.log(res.data)
+        })
+        .catch((error) => {
+          console.log("Error while adding member:", error);
+          alert(error.response.data.message);
+        });
+  }
+
   return (
       <>
         <div className={styles.main}>
 
           <div className={styles.top}>
+            <div className={styles.onPost} onClick={onPost}> 게시글 작성</div>
             <h1 className={styles.ida} onClick={onIdeaClick}>idéa</h1>
             <div className={styles.div} onClick={onTextClick}>
               로그아웃
@@ -81,22 +100,6 @@ const Developers1 = () => {
             </div>
             <div className={styles.div4} onClick={onText6Click}>
               내가 쓴 글 목록
-            </div>
-          </div>
-
-          <div className={styles.middle2}>
-            <div className={styles.searchField}>
-              <input
-                  className={styles.placeholderLabel}
-                  placeholder="검색"
-                  type="text"
-              />
-              <img
-                  className={styles.searchGlyph}
-                  loading="lazy"
-                  alt=""
-                  src="/search.svg"
-              />
             </div>
           </div>
 

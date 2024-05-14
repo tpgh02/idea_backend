@@ -86,21 +86,6 @@ const Post = () => {
                     </div>
                 </div>
 
-                <div className={styles.middle2}>
-                    <div className={styles.searchField}>
-                        <input
-                            className={styles.placeholderLabel}
-                            placeholder="검색"
-                            type="text"
-                        />
-                        <img
-                            className={styles.searchGlyph}
-                            loading="lazy"
-                            alt=""
-                            src="/search.svg"
-                        />
-                    </div>
-                </div>
                 <div className={styles.bottom}>
                     <div className={styles.ideaPost}>
                         <div className={styles.post}>

@@ -10,6 +10,7 @@ const Board = () => {
     const [isMypageSettingOpen, setMypageSettingOpen] = useState(false);
     const navigate = useNavigate();
     const [postList, setPostList] = useState([]);
+    const [keyword, setKeyword] = useState("");
 
     const onTextClick = useCallback(() => {
         navigate("/");
@@ -40,6 +41,10 @@ const Board = () => {
         navigate("/developers1");
     }, [navigate]);
 
+    const onPost = useCallback(() => {
+        navigate("/post");
+    }, [navigate]);
+
     const fetchData = useCallback(() => {
         axios.get("http://localhost:8080/boards/list")
             .then((res) => {
@@ -55,22 +60,38 @@ const Board = () => {
     useEffect(()=> {
         fetchData();
     }, [fetchData]);
+
+    const handleSave = (event) => {
+        event.preventDefault();
+        axios.get(`http://localhost:8080/boards/search/${keyword}`)
+            .then((res) => {
+                console.log("post searched successfully.");
+                setPostList(res.data);
+                console.log(res.data)
+            })
+            .catch((error) => {
+                console.log("Error while adding member:", error);
+                alert(error.response.data.message);
+            });
+    }
+
   return (
       <>
       <div className={styles.main}>
 
-        <div className={styles.top}>
-          <h1 className={styles.ida} onClick={onIdeaClick}>idéa</h1>
-          <div className={styles.div} onClick={onTextClick}>
-            로그아웃
+          <div className={styles.top}>
+              <div className={styles.onPost} onClick={onPost}> 게시글 작성</div>
+              <h1 className={styles.ida} onClick={onIdeaClick}>idéa</h1>
+              <div className={styles.div} onClick={onTextClick}>
+                  로그아웃
+              </div>
+              <div className={styles.div1} onClick={openMypageSetting}>
+                  마이페이지
+              </div>
           </div>
-          <div className={styles.div1} onClick={openMypageSetting}>
-            마이페이지
-          </div>
-        </div>
 
-        <div className={styles.middle1}>
-          <div className={styles.div2} onClick={onText4Click}>
+          <div className={styles.middle1}>
+              <div className={styles.div2} onClick={onText4Click}>
             아이디어 게시판
           </div>
           <div className={styles.div3} onClick={onText5Click}>
@@ -85,14 +106,16 @@ const Board = () => {
             <div className={styles.searchField}>
                 <input
                     className={styles.placeholderLabel}
-                    placeholder="검색"
+                    placeholder="아이디어 검색"
                     type="text"
+                    onChange={(event) => {setKeyword(event.target.value)}}
                 />
                 <img
                     className={styles.searchGlyph}
                     loading="lazy"
                     alt=""
                     src="/search.svg"
+                    onClick={handleSave}
                 />
             </div>
         </div>
