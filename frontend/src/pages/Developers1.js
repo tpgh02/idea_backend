@@ -5,9 +5,11 @@ import { useNavigate } from "react-router-dom";
 import styles from "./Developers1.module.css";
 import {Scrollbars} from "react-custom-scrollbars-2";
 import axios from "axios";
+import MypageSettingDeveloper from "../components/MypageSettingDeveloper";
 
 const Developers1 = () => {
   const [isMypageSettingOpen, setMypageSettingOpen] = useState(false);
+  const [isMypageSettingDeveloperOpen, setMypageSettingDeveloperOpen] = useState(false);
   const navigate = useNavigate();
   const [postList, setPostList] = useState([]);
   const [keyword, setKeyword] = useState("");
@@ -22,11 +24,20 @@ const Developers1 = () => {
   }, [navigate]);
 
   const openMypageSetting = useCallback(() => {
-    setMypageSettingOpen(true);
+    if (JSON.parse(localStorage.getItem('member')).memberClassify === "NORMAL") {
+      setMypageSettingOpen(true);
+    } else {
+      setMypageSettingDeveloperOpen(true);
+    }
+
   }, []);
 
   const closeMypageSetting = useCallback(() => {
     setMypageSettingOpen(false);
+  }, []);
+
+  const closeMypageSettingDeveloper = useCallback(() => {
+    setMypageSettingDeveloperOpen(false);
   }, []);
 
   const onText4Click = useCallback(() => {
@@ -142,6 +153,14 @@ const Developers1 = () => {
                 placement="Centered"
             >
               <MypageSetting onClose={closeMypageSetting}/>
+            </PortalPopup>
+        )}
+        {isMypageSettingDeveloperOpen && (
+            <PortalPopup
+                overlayColor="rgba(113, 113, 113, 0.3)"
+                placement="Centered"
+            >
+              <MypageSettingDeveloper onClose={closeMypageSettingDeveloper}/>
             </PortalPopup>
         )}
       </>

@@ -5,12 +5,14 @@ import { useNavigate } from "react-router-dom";
 import styles from "./Board.module.css";
 import axios from "axios";
 import {Scrollbars} from "react-custom-scrollbars-2";
+import MypageSettingDeveloper from "../components/MypageSettingDeveloper";
 
 const Board = () => {
     const [isMypageSettingOpen, setMypageSettingOpen] = useState(false);
     const navigate = useNavigate();
     const [postList, setPostList] = useState([]);
     const [keyword, setKeyword] = useState("");
+    const [isMypageSettingDeveloperOpen, setMypageSettingDeveloperOpen] = useState(false);
 
     const onTextClick = useCallback(() => {
         navigate("/");
@@ -22,11 +24,20 @@ const Board = () => {
     }, [navigate]);
 
     const openMypageSetting = useCallback(() => {
-        setMypageSettingOpen(true);
+        if (JSON.parse(localStorage.getItem('member')).memberClassify === "NORMAL") {
+            setMypageSettingOpen(true);
+        } else {
+            setMypageSettingDeveloperOpen(true);
+        }
+
     }, []);
 
     const closeMypageSetting = useCallback(() => {
         setMypageSettingOpen(false);
+    }, []);
+
+    const closeMypageSettingDeveloper = useCallback(() => {
+        setMypageSettingDeveloperOpen(false);
     }, []);
 
     const onText4Click = useCallback(() => {
@@ -157,6 +168,14 @@ const Board = () => {
             <MypageSetting onClose={closeMypageSetting} />
         </PortalPopup>
     )}
+          {isMypageSettingDeveloperOpen && (
+              <PortalPopup
+                  overlayColor="rgba(113, 113, 113, 0.3)"
+                  placement="Centered"
+              >
+                  <MypageSettingDeveloper onClose={closeMypageSettingDeveloper}/>
+              </PortalPopup>
+          )}
     </>
   );
 };

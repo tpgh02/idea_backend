@@ -37,6 +37,7 @@ const MypageSettingDeveloper = ({ onClose }) => {
         axios.post("http://localhost:8080/members/update", updateMember)
             .then((response) => {
                 console.log("user updated successfully.");
+                location.reload();
                 onQuillescapeIconClick();
             })
             .catch((error) => {

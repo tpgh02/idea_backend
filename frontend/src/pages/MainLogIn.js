@@ -35,6 +35,10 @@ const MainLogIn = () => {
     setMypageSettingDeveloperOpen(false);
   }, []);
 
+  const onIdeaClick = useCallback(() => {
+    location.reload();
+  }, []);
+
   const onText4Click = useCallback(() => {
     navigate("/board");
   }, [navigate]);
@@ -75,7 +79,7 @@ const MainLogIn = () => {
 
           <div className={styles.top}>
             <div className={styles.onPost} onClick={onPost}> 게시글 작성 </div>
-            <h1 className={styles.ida}>idéa</h1>
+            <h1 className={styles.ida} onClick={onIdeaClick} >idéa</h1>
             <div className={styles.div} onClick={onTextClick}>
               로그아웃
             </div>
