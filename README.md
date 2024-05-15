@@ -43,9 +43,7 @@ $ cd backend
 $ ./gradlew bootjar
 ```
 ### 실행
-```agsl
-$ cd backend/
-```
+
 $projectDir/src/main/java/hello/hellospring/HelloSpringApplication.java 실행
 
 
