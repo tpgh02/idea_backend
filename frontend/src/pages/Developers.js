@@ -70,7 +70,7 @@ const Developers = () => {
 
     useEffect(()=> {
         fetchData();
-    }, [fetchData]);
+    }, []);
 
     const handleSave = (event) => {
         event.preventDefault();

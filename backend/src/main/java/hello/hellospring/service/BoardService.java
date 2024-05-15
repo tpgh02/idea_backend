@@ -64,6 +64,7 @@ public class BoardService {
                 .stream().map(BoardData::new).toList();
 
         return Stream.of(title, content)
+                .distinct()
                 .flatMap(Collection::stream)
                 .toList();
     }

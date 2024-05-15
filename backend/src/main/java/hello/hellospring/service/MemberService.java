@@ -28,10 +28,7 @@ public class MemberService {
 
     public void join(SignUpData signUpData){
 
-        validateDuplicateMember(signUpData);// 회원 이메일로 중복 검증
-        if (!signUpData.getPassword1().equals(signUpData.getPassword2())){
-            throw new MemberException("비밀번호가 일치하지 않습니다.");
-        }
+        validate(signUpData);
 
         memberRepository.save(Member.builder()
                 .name(signUpData.getName())
@@ -93,6 +90,7 @@ public class MemberService {
                 .stream().map(MemberData::new).toList();
 
         return Stream.of(name, language)
+                .distinct()
                 .flatMap(Collection::stream)
                 .toList();
     }
