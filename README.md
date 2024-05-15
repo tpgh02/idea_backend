@@ -43,9 +43,6 @@ $ cd backend
 $ ./gradlew bootjar
 ```
 ### 실행
-```agsl
-$ cd backend/
-```
 $projectDir/src/main/java/hello/hellospring/HelloSpringApplication.java 실행
 
 
@@ -58,11 +55,12 @@ $projectDir/src/main/java/hello/hellospring/HelloSpringApplication.java 실행
 
 ## 화면 구성
 
-| 회원가입                                                                                                        | 메인 페이지      | 내 정보 수정      |  
-|-------------------------------------------------------------------------------------------------------------|-------------|--------------|
-| <img src="https://github.com/tpgh02/idea_backend/assets/65213245/62263d87-9981-431a-9953-c85e4e375179"> | <img src="https://github.com/tpgh02/idea_backend/assets/65213245/939a2548-11d8-4722-84b4-10461c8e5591"> | <img src="https://github.com/tpgh02/idea_backend/assets/65213245/b8212e1e-2c30-4dc3-9dd8-7bf7945a31db"> |
-
-| 개발자 목록                                                                                                      | 아이디어 게시판 | 게시글 작성  |
-|---|---|---------|
-|<img src="https://github.com/tpgh02/idea_backend/assets/65213245/2771a858-6f0d-4102-97ba-3774364e74b7">|<img src="https://github.com/tpgh02/idea_backend/assets/65213245/c3a6eb88-55cf-4a6c-8fb9-40b460e9d076">|<img src="https://github.com/tpgh02/idea_backend/assets/65213245/5b75929e-6475-4427-a7b8-f76b2f63376b">|
+| 회원가입                                                                                                    | 메인 페이지                                                                                                  |
+|---------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+| <img src="https://github.com/tpgh02/idea_backend/assets/65213245/62263d87-9981-431a-9953-c85e4e375179"> | <img src="https://github.com/tpgh02/idea_backend/assets/65213245/939a2548-11d8-4722-84b4-10461c8e5591"> | 
+| 내 정보 수정  | 개발자 목록                                                                                                  |
+|<img src="https://github.com/tpgh02/idea_backend/assets/65213245/b8212e1e-2c30-4dc3-9dd8-7bf7945a31db"> | <img src="https://github.com/tpgh02/idea_backend/assets/65213245/2771a858-6f0d-4102-97ba-3774364e74b7">                                                                                                     |
+|                                                                                                         |
+| 아이디어 게시판                                                                                                | 게시글 작성  |
+| <img src="https://github.com/tpgh02/idea_backend/assets/65213245/c3a6eb88-55cf-4a6c-8fb9-40b460e9d076"> |<img src="https://github.com/tpgh02/idea_backend/assets/65213245/5b75929e-6475-4427-a7b8-f76b2f63376b">|
 
