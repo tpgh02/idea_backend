@@ -1,1 +1,1 @@
-insert into member(name, member_lassify, email, password) values ('테스트유저1', 'DEVELOPER', 'test@test.com', 'abc')
+insert into member(name, member_classify, email, password) values ('테스트유저1', 'DEVELOPER', 'test@test.com', 'abc')
