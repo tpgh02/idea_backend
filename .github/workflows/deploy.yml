@@ -22,7 +22,7 @@ jobs:
     environment: production
     defaults:
       run:
-        working-directory: ./backend
+        working-directory: ./idea_backend/backend
 
     steps:
     # (1) 기본 체크아웃
