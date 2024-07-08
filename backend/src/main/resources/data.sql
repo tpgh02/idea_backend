@@ -1,1 +1,1 @@
-insert into member(name, memberClassify, email, password) va slues ('테스트유저', 'DEVELOPER', 'test@test.com', 'abc')
+insert into member(name, memberClassify, email, password) va slues ('테스트유저1', 'DEVELOPER', 'test@test.com', 'abc')
