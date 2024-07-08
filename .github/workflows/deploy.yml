@@ -23,7 +23,8 @@ jobs:
 
     steps:
     # (1) 기본 체크아웃
-    - uses: actions/checkout@v3
+    - name: CheckOut
+      uses: actions/checkout@v3
     
     # (2) application.properties 설정
     - uses : actions/checkout@v3
