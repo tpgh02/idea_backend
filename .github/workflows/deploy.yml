@@ -28,8 +28,9 @@ jobs:
     # (1) 기본 체크아웃
     - name: CheckOut
       uses: actions/checkout@v3
-    - name: print working directory
-      run: pwd
+
+    - name: move directory
+      run: cd ..
 
     # (2) application.properties 설정
     - uses : actions/checkout@v3
