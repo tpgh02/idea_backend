@@ -46,12 +46,9 @@ jobs:
         distribution: 'corretto'
         java-version: '17'
 
-    - name: Change directory to idea_backend
-      run: cd idea_backend
-
     # (5) Gradle build (Test 제외)
     - name: Build with Gradle
-      uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
+      uses: gradle/gradle-build-action@v2
       with:
         arguments: clean build -x test
         gradle-version: 8.1.1
