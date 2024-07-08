@@ -5,7 +5,7 @@ os: linux
 
 files:
   - source:  /
-    destination: /home/ubuntu/idea_backend/backend
+    destination: /home/ubuntu/app
     overwrite: yes
 files_exists_behavior: OVERWRITE
 permissions:
@@ -15,8 +15,7 @@ permissions:
     group: ubuntu
 
 hooks:
-  BeforeInstall:
-    -location: backend/scripts/BeforeInstall.bash
+
   AfterInstall:
     - location: backend/scripts/stop.sh
       timeout: 60
