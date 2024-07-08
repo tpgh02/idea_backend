@@ -49,7 +49,7 @@ const Post = () => {
             title: title,
             content: content,
         };
-        axios.post("http://localhost:8080/boards/new", newPost)
+        axios.post("http://3.25.61.21:8080/boards/new", newPost)
             .then((response) => {
                 console.log("post added successfully.");
                 onText4Click();

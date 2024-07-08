@@ -34,7 +34,7 @@ const MypageSettingDeveloper = ({ onClose }) => {
             skill: skill,
             etc: etc,
         };
-        axios.post("http://localhost:8080/members/update", updateMember)
+        axios.post("http://3.25.61.21:8080/members/update", updateMember)
             .then((response) => {
                 console.log("user updated successfully.");
                 location.reload();

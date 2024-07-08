@@ -57,7 +57,7 @@ const Developers = () => {
     }, [navigate]);
 
     const fetchData = useCallback(() => {
-        axios.get("http://localhost:8080/members/developers")
+        axios.get("http://3.25.61.21:8080/members/developers")
             .then((res) => {
                 console.log(res.data);
                 setDeveloperList(res.data);
@@ -74,7 +74,7 @@ const Developers = () => {
 
     const handleSave = (event) => {
         event.preventDefault();
-        axios.get(`http://localhost:8080/members/search/${keyword}`)
+        axios.get(`http://3.25.61.21:8080/members/search/${keyword}`)
             .then((res) => {
                 console.log("post searched successfully.");
                 setDeveloperList(res.data);

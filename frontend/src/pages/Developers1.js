@@ -58,7 +58,7 @@ const Developers1 = () => {
 
   const fetchData = useCallback(() => {
     const memberId = JSON.parse(localStorage.getItem("member")).id;
-    axios.get(`http://localhost:8080/boards/mylist/${memberId}`)
+    axios.get(`http://3.25.61.21:8080/boards/mylist/${memberId}`)
         .then((res) => {
           console.log(res.data);
           setPostList(res.data);
@@ -75,7 +75,7 @@ const Developers1 = () => {
 
   const handleSave = (event) => {
     event.preventDefault();
-    axios.get(`http://localhost:8080/members/search/${keyword}`)
+    axios.get(`http://3.25.61.21:8080/members/search/${keyword}`)
         .then((res) => {
           console.log("post searched successfully.");
           setPostList(res.data);

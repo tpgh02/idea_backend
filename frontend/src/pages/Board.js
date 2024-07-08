@@ -57,7 +57,7 @@ const Board = () => {
     }, [navigate]);
 
     const fetchData = useCallback(() => {
-        axios.get("http://localhost:8080/boards/list")
+        axios.get("http://3.25.61.21:8080/boards/list")
             .then((res) => {
                 console.log(res.data);
                 setPostList(res.data);
@@ -74,7 +74,7 @@ const Board = () => {
 
     const handleSave = (event) => {
         event.preventDefault();
-        axios.get(`http://localhost:8080/boards/search/${keyword}`)
+        axios.get(`http://3.25.61.21:8080/boards/search/${keyword}`)
             .then((res) => {
                 console.log("post searched successfully.");
                 setPostList(res.data);

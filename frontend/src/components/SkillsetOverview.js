@@ -49,7 +49,7 @@ const SkillSetOverview = ({onClose}) => {
             skill: skill,
             etc: etc,
         };
-        axios.post("http://localhost:8080/members/new", newMember)
+        axios.post("http://3.25.61.21:8080/members/new", newMember)
             .then((response) => {
                 console.log("user added successfully.");
                 localStorage.clear();

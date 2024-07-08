@@ -21,7 +21,7 @@ const LoginForm = () => {
 
     const handleLogin = (event) => {
         event.preventDefault();
-        axios.post("http://localhost:8080/members/login", {
+        axios.post("http://3.25.61.21:8080/members/login", {
             email, password,
         })
             .then(res => {

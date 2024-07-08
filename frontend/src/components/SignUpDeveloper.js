@@ -49,7 +49,7 @@ const SignUpDeveloper = ({ onClose }) => {
 
     const handleSave = (event) => {
         event.preventDefault();
-        axios.post("http://localhost:8080/members/validate", {
+        axios.post("http://3.25.61.21:8080/members/validate", {
             name, email, password1, password2
         })
             .then(res => {

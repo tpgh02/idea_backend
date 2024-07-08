@@ -39,7 +39,7 @@ const Main = () => {
   }, []);
 
   const fetchData = useCallback(() => {
-    axios.get("http://localhost:8080/home")
+    axios.get("http://3.25.61.21:8080/home")
         .then((res) => {
           console.log(res.data);
           setDeveloper(res.data.memberData);
