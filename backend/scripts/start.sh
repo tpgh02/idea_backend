@@ -9,10 +9,10 @@ DEPLOY_LOG="$PROJECT_ROOT/deploy.log"
 
 TIME_NOW=$(date +%c)
 
-SERVICE_PID=$(pgrep -f $JAR)
+SERVICE_PID=$(pgrep -f $JAR_FILE)
 
 if [ -z "$SERVICE_PID" ]; then
-  echo "서비스 NouFound" >> $STOP_LOG
+  echo "서비스 NotFound" >> $STOP_LOG
 else
   echo "서비스 중지 " >> $STOP_LOG
   kill -9 "$SERVICE_PID"
