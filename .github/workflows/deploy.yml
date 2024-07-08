@@ -40,7 +40,7 @@ jobs:
     - name: Set up JDK 17
       uses: actions/setup-java@v3
       with:
-        distribution: 'temurin'
+        distribution: 'corretto'
         java-version: '17'
 
     # (5) Gradle build (Test 제외)
