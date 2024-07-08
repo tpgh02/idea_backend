@@ -28,9 +28,9 @@ jobs:
     
     # (2) application.properties 설정
     - uses : actions/checkout@v3
-    - run: touch ./src/main/resources/application.yml
-    - run: echo "${{ secrets.APPLICATION }}" > ./src/main/resources/application.yml
-    - run: cat ./src/main/resources/application.yml
+    - run: touch ./backend/src/main/resources/application.yml
+    - run: echo "${{ secrets.APPLICATION }}" > ./backend/src/main/resources/application.yml
+    - run: cat ./backend/src/main/resources/application.yml
 
     # (3) gradlew 권한 추가
     - name: Run chmod to make gradlew executable
