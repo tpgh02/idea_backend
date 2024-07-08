@@ -9,6 +9,13 @@ DEPLOY_LOG="$PROJECT_ROOT/deploy.log"
 
 TIME_NOW=$(date +%c)
 
+if [ -z "$SERVICE_PID" ]; then
+  echo "서비스 NouFound" >> $STOP_LOG
+else
+  echo "서비스 중지 " >> $STOP_LOG
+  kill -9 "$SERVICE_PID"
+fi
+
 # build 파일 복사
 echo "$TIME_NOW > $JAR_FILE 파일 복사" >> $DEPLOY_LOG
 cp $PROJECT_ROOT/build/libs/*.jar $JAR_FILE
