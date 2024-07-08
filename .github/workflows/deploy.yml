@@ -22,7 +22,7 @@ jobs:
     environment: production
     defaults:
       run:
-        working-directory: ./idea_backend/backend
+        working-directory: ./backend
 
     steps:
     # (1) 기본 체크아웃
@@ -45,6 +45,9 @@ jobs:
       with:
         distribution: 'corretto'
         java-version: '17'
+
+    - name: Change directory to idea_backend
+      run: cd idea_backend
 
     # (5) Gradle build (Test 제외)
     - name: Build with Gradle
