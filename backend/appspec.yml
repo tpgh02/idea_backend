@@ -16,7 +16,7 @@ permissions:
 
 hooks:
   BeforeInstall:
-    -location: backend/scripts/beforeInstall.bash
+    -location: backend/scripts/BeforeInstall.bash
   AfterInstall:
     - location: backend/scripts/stop.sh
       timeout: 60
