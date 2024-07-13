@@ -5,6 +5,7 @@ import hello.hellospring.DTO.MemberData;
 import hello.hellospring.DTO.SignUpData;
 import hello.hellospring.domain.Member;
 import hello.hellospring.exception.MemberException;
+import hello.hellospring.jwt.JWTUtil;
 import hello.hellospring.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,6 +25,7 @@ public class MemberService {
 
     private final MemberRepository memberRepository;
     private final PasswordEncoder passwordEncoder;
+    private final JWTUtil jwtUtil;
 
 
     public void join(SignUpData signUpData){
@@ -64,7 +66,7 @@ public class MemberService {
                .toList();
     }
 
-    public MemberData login(LoginData loginData) {
+    public String login(LoginData loginData) {
         Member member = memberRepository.findByEmail(loginData.getEmail())
                 .orElseThrow(() -> new MemberException("존재하지 않는 회원입니다."));
 
@@ -74,7 +76,7 @@ public class MemberService {
 
         log.info("member Id : {}", member.getId());
 
-        return new MemberData(member);
+        return jwtUtil.createJwt(member.getName());
     }
 
     public List<MemberData> searchMember(String keyword){

@@ -29,7 +29,7 @@ public class MemberController {
     }
 
     @PostMapping("/login")
-    public MemberData memberLogin(@RequestBody LoginData login) {
+    public String memberLogin(@RequestBody LoginData login) {
         return memberService.login(login);
     }
 
