@@ -29,10 +29,7 @@ jobs:
     - name: CheckOut
       uses: actions/checkout@v3
 
-    - name: print working directory
-      run: pwd
-
-    # (2) application.properties 설정
+    # (2) application.yml 설정
     - uses : actions/checkout@v3
     - run: touch ./src/main/resources/application.yml
     - run: echo "${{ secrets.APPLICATION }}" > ./src/main/resources/application.yml
@@ -57,6 +54,7 @@ jobs:
 
     - name: Build with Gradle Wrapper
       run: ./gradlew clean build --exclude-task test
+
     # (6) AWS 인증 (IAM 사용자 Access Key, Secret Key 활용)
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1

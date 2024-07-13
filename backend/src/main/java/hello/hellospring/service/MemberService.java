@@ -1,15 +1,14 @@
 package hello.hellospring.service;
 
-import hello.hellospring.DTO.BoardData;
 import hello.hellospring.DTO.LoginData;
 import hello.hellospring.DTO.MemberData;
 import hello.hellospring.DTO.SignUpData;
 import hello.hellospring.domain.Member;
-import hello.hellospring.exception.BoardException;
 import hello.hellospring.exception.MemberException;
 import hello.hellospring.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import hello.hellospring.domain.MemberClassify;
 
@@ -24,17 +23,17 @@ import java.util.stream.Stream;
 public class MemberService {
 
     private final MemberRepository memberRepository;
+    private final PasswordEncoder passwordEncoder;
 
 
     public void join(SignUpData signUpData){
-
         validate(signUpData);
 
         memberRepository.save(Member.builder()
                 .name(signUpData.getName())
                 .memberClassify(signUpData.getMemberClassify())
                 .email(signUpData.getEmail())
-                .password(signUpData.getPassword1())
+                .password(passwordEncoder.encode(signUpData.getPassword1()))
                 .language(signUpData.getLanguage())
                 .experience(signUpData.getExperience())
                 .skill(signUpData.getSkill())
@@ -43,7 +42,6 @@ public class MemberService {
     }
 
     public void validate(SignUpData signUpData){
-
         validateDuplicateMember(signUpData);
 
         if (!signUpData.getPassword1().equals(signUpData.getPassword2())){

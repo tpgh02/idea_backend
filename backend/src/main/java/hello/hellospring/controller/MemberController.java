@@ -1,6 +1,5 @@
 package hello.hellospring.controller;
 
-import hello.hellospring.DTO.BoardData;
 import hello.hellospring.DTO.LoginData;
 import hello.hellospring.DTO.MemberData;
 import hello.hellospring.DTO.SignUpData;
