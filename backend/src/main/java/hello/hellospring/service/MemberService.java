@@ -68,7 +68,7 @@ public class MemberService {
         Member member = memberRepository.findByEmail(loginData.getEmail())
                 .orElseThrow(() -> new MemberException("존재하지 않는 회원입니다."));
 
-        if(!member.getPassword().equals(loginData.getPassword())){
+        if(!passwordEncoder.matches(loginData.getPassword(), member.getPassword())){
             throw new MemberException("비밀번호가 일치하지 않습니다.");
         }
 
